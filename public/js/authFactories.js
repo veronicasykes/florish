@@ -86,7 +86,6 @@ function authFactory($http, $q, authTokenFactory, $window){
 	// get that user's info
 	authFactory.getUser = function(){
 		if(authTokenFactory.getToken()){
-			console.log("helloooo")
 			return $http.get('http://localhost:3000/api/me?token=' + $window.localStorage.getItem('token') )
 		} else {
 			return $q.reject({message: 'User has no token'})

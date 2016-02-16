@@ -3,8 +3,13 @@
 //show size options
 //onclick show small, medium, or large
 //onclick show details. on  -->
-<button type="button" ng-show= "productsCtrl.options.size" ng-click="productsCtrl.selectLarge()">large plants</button>
-<button type="button" ng-show= "productsCtrl.options.size" ng-click="productsCtrl.selectSmall()">small plants</button>
+
+
+	<img class="thumbnail" src="http://2.bp.blogspot.com/-u3eDE1uS194/UE6dxfYMg4I/AAAAAAAAHZM/8zzSY-MnDEE/s640/Elle+Decor+Fiddle+Leaf+Figs.jpg" ng-show= "productsCtrl.options.size" ng-click="productsCtrl.selectLarge()"/>
+<img class="thumbnail" src="https://img0.etsystatic.com/046/0/6172236/il_fullxfull.669542738_mkfg.jpg" ng-show= "productsCtrl.options.size" ng-click="productsCtrl.selectSmall()"/>
+
+
+
 <button type="button" ng-show= "productsCtrl.options.light" ng-click="productsCtrl.selectLowLight()">low light plants</button>
 <button type="button" ng-show= "productsCtrl.options.light" ng-click="productsCtrl.selectBrightLight()">bright light plants</button>
 
@@ -16,6 +21,10 @@
 			<img ng-src="{{product.image}}" alt="{{product.name}}">
 			<figcaption>
 				<h3>{{product.name}}, {{product.price | currency}}</h3>
+				<div ng-mouseover="productsCtrl.showPopover()" ng-mouseleave="productsCtrl.hidePopover()">
+  				more info
+				</div>
+				<div class="popover" ng-show="productsCtrl.popoverIsVisible">{{product.description}}</div>
 				<button ng-click="productsCtrl.addToCart(product)">Add to cart</button>
 			</figcaption>
 		</figure>

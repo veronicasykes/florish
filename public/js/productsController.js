@@ -67,6 +67,15 @@ function ProductsController (productsFactory, $modal){
 		vm.options.light = false
 	}
 
+	vm.showPopover = function() {
+  vm.popoverIsVisible = true;
+};
+
+	vm.hidePopover = function () {
+  vm.popoverIsVisible = false;
+	};
+
+
 
 	vm.cart = [];
 
