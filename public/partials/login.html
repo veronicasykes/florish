@@ -1,29 +1,22 @@
-<div class="row col-md-6 col-md-offset-3">
-	
-	<div class="jumbotron">
-		<h1>Login</h1>		
+	<h1>Welcome to Florish</h1>
+	<div class="home">
+	<img src="http://blog.westelm.com/wp-content/uploads/2014/10/DSC_1456.jpg" alt=""/>
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
 
-		<form ng-submit="usersCtrl.login()">
-			
-			<div class="form-group">
-				<label>Username</label>
-				<input type="text" class="form-control" ng-model="usersCtrl.user.username">
-			</div>
-
-			<div class="form-group">
-				<label>Password</label>
-				<input type="password" class="form-control" ng-model="usersCtrl.user.password">
-			</div>
-
-			<div class="alert alert-danger" ng-if="usersCtrl.error">
-				{{ usersCtrl.error }}
-			</div>
-
-			<button type="submit" class="btn btn-block btn-primary">
-				<span>Login</span>
-			</button>
-
-		</form>
-	</div>
-	
+            <div class="account-wall">
+							 <span class="prompt">Please Sign In</span>
+              	<form class="form-signin" ng-submit="usersCtrl.login()">
+                <input type="text" class="form-control" placeholder="Email" ng-model="usersCtrl.user.username" required autofocus>
+                <input type="password" class="form-control" ng-model="usersCtrl.user.password" placeholder="Password" required>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    Sign in</button>
+								<div class="alert alert-danger" ng-if="usersCtrl.error">
+									{{ usersCtrl.error }}
+								</div>
+                </form>
+            </div>
+            <a ui-sref="signup" class="text-center new-account">Create an account </a>
+        </div>
+    </div>
 </div>

@@ -2,6 +2,7 @@ angular
 	.module('Florish')
 	.controller('ProductsController', ProductsController)
 
+
 ProductsController.$inject = ['productsFactory', '$modal']
 
 function ProductsController (productsFactory, $modal){
@@ -66,7 +67,7 @@ function ProductsController (productsFactory, $modal){
 	function hideAllBtns(){
 		vm.options.light = false
 	}
-	
+
 	vm.cart = [];
 
 	vm.addToCart = function (product) {
