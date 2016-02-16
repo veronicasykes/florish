@@ -1,0 +1,38 @@
+
+
+<div class="row">
+    <div>
+        Filter Search: <input type="text" ng-model="filterSearch">
+    </div>
+
+    <div>
+        Sort By:
+        <select ng-model="plantOrder">
+            <option value="productsCtrl.products.name">Name</option>
+
+        </select>
+    </div>
+
+    <ul>
+        <li ng-repeat="product in productsCtrl.products | orderBy:productOrder | filter:filterSearch">{{ product.name }}</li>
+    </ul>
+</div>
+
+
+
+
+
+
+
+<div ng-if="productsCtrl.cart.length" class="shopping-cart">
+	<h2>{{productsCtrl.cart.length}} items in cart, ${{productsCtrl.getCartPrice()}}</h2>
+
+	<span class="cart-item th radius" ng-repeat="product in productsCtrl.cart">
+		<img ng-src="{{product.image}}" title="{{product.name}}"/>
+		<span class="badge" ng-show="product.quantity > 1">
+			x{{product.quantity}}
+		</span>
+	</span>
+
+	<button ng-click="productsCtrl.checkout();">Checkout</button>
+</div>
