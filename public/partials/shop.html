@@ -1,11 +1,5 @@
-<!-- //show brightness options
-//onclick show bright or dark
-//show size options
-//onclick show small, medium, or large
-//onclick show details. on  -->
 
-
-	<img class="thumbnail" src="http://2.bp.blogspot.com/-u3eDE1uS194/UE6dxfYMg4I/AAAAAAAAHZM/8zzSY-MnDEE/s640/Elle+Decor+Fiddle+Leaf+Figs.jpg" ng-show= "productsCtrl.options.size" ng-click="productsCtrl.selectLarge()"/>
+<img class="thumbnail" src="http://2.bp.blogspot.com/-u3eDE1uS194/UE6dxfYMg4I/AAAAAAAAHZM/8zzSY-MnDEE/s640/Elle+Decor+Fiddle+Leaf+Figs.jpg" ng-show= "productsCtrl.options.size" ng-click="productsCtrl.selectLarge()"/>
 <img class="thumbnail" src="https://img0.etsystatic.com/046/0/6172236/il_fullxfull.669542738_mkfg.jpg" ng-show= "productsCtrl.options.size" ng-click="productsCtrl.selectSmall()"/>
 
 
@@ -13,44 +7,25 @@
 <button type="button" ng-show= "productsCtrl.options.light" ng-click="productsCtrl.selectLowLight()">low light plants</button>
 <button type="button" ng-show= "productsCtrl.options.light" ng-click="productsCtrl.selectBrightLight()">bright light plants</button>
 
-<div class="largeLow" ng-show="productsCtrl.customerPreference.large && productsCtrl.customerPreference.lowLight">
-<h1>large low light plant</h1>
-<ul class="product-list small-block-grid-2">
-	<li ng-repeat="product in productsCtrl.products" ng-show= "product.lightNeed.lowLight && product.size.large">
-		<figure>
-			<img ng-src="{{product.image}}" alt="{{product.name}}">
-			<figcaption>
-				<h3>{{product.name}}, {{product.price | currency}}</h3>
-				<div ng-mouseover="productsCtrl.showPopover()" ng-mouseleave="productsCtrl.hidePopover()">
-  				more info
-				</div>
-				<div class="popover" ng-show="productsCtrl.popoverIsVisible">{{product.description}}</div>
-				<button ng-click="productsCtrl.addToCart(product)">Add to cart</button>
-			</figcaption>
-		</figure>
-	</li>
-</ul>
-</div>
 
-<div class="smallLow" ng-show="productsCtrl.customerPreference.small && productsCtrl.customerPreference.lowLight">
-<h1>small low light plant</h1>
-<ul class="product-list small-block-grid-2">
-	<li ng-repeat="product in productsCtrl.products" ng-show= "product.lightNeed.lowLight && product.size.small">
-		<figure>
-			<img ng-src="{{product.image}}" alt="{{product.name}}">
-			<figcaption>
-				<h3>{{product.name}}, {{product.price | currency}}</h3>
-				<button ng-click="productsCtrl.addToCart(product)">Add to cart</button>
-			</figcaption>
-		</figure>
-	</li>
-</ul>
+	<ul class="product-list small-block-grid-2">
+		<li ng-repeat="product in productsCtrl.products | filter: { size: {small: productsCtrl.customerPreference.small, large: productsCtrl.customerPreference.large}, lightNeed: {lowLight: productsCtrl.customerPreference.lowLight, brightLight: productsCtrl.customerPreference.brightLight}}">
+			<figure>
+				<img ng-src="{{product.image}}" alt="{{product.name}}">
+				<figcaption>
+					<h3>{{product.name}}, {{product.price | currency}}</h3>
+					<button ng-click="productsCtrl.addToCart(product)">Add to cart</button>
+				</figcaption>
+			</figure>
+		</li>
+	</ul>
 </div>
 
 <div ng-if="productsCtrl.cart.length" class="shopping-cart">
 	<h2>{{productsCtrl.cart.length}} items in cart, ${{productsCtrl.getCartPrice()}}</h2>
 
 	<span class="cart-item th radius" ng-repeat="product in productsCtrl.cart">
+
 		<img ng-src="{{product.image}}" title="{{product.name}}"/>
 		<span class="badge" ng-show="product.quantity > 1">
 			x{{product.quantity}}

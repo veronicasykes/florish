@@ -44,5 +44,10 @@ function MainRouter($stateProvider, $urlRouterProvider) {
 			templateUrl: 'partials/search.html',
 			controller: 'ProductsController as productsCtrl'
 		})
+		.state('admin', {
+			url: '/admin/:productId',
+			templateUrl: 'partials/admin.html',
+			controller: 'ProductsController as productsCtrl'
+		})
 
 }
