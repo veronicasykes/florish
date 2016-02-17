@@ -47,6 +47,8 @@ function authInterceptorFactory($q, $location, authTokenFactory){
 
 // ==============================================
 
+
+
 angular.module('Florish')
 .factory('authFactory', authFactory)
 authFactory.$inject = ['$http', '$q', 'authTokenFactory', '$window']
