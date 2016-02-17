@@ -15,7 +15,7 @@ function ProductsController (productsFactory, $modal){
 			vm.products = res
 		})
 	vm.addProduct = function(name, size, description, price, type, image, lightNeed){
-		var data = {name:name, size.small:size.small, size.large:size.large, description:description, image:image, type.pot:type.pot, type.plant:type.plant, price:price, lightNeed.lowLight:lightNeed.lowLight, lightNeed.brightLight:lightNeed.brightLight}
+		var data = {name:name, size:size, description:description, image:image, type:type, price:price, lightNeed:lightNeed}
 		console.log(data)
 		vm.api.addProduct(data)
 			.then(function success(res){
