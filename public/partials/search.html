@@ -9,12 +9,14 @@
         Sort By:
         <select ng-model="plantOrder">
             <option value="productsCtrl.products.name">Name</option>
+            <option value="productsCtrl.products.image">image</option>
+
 
         </select>
     </div>
 
     <ul>
-        <li ng-repeat="product in productsCtrl.products | orderBy:productOrder | filter:filterSearch">{{ product.name }}</li>
+        <li ng-repeat="product in productsCtrl.products | filter:filterSearch">{{ product.name }}</li>
     </ul>
 </div>
 

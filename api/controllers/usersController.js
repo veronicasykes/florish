@@ -2,7 +2,7 @@
 
 var User = require('../models/User'),
 	jwt = require('jsonwebtoken'),
-	mySpecialSecret = "pizza";
+	mySpecialSecret = "cactus";
 
 
 function index(req, res){
@@ -30,7 +30,7 @@ function create(req, res){
 				res.send(err)
 			}
 		}
-		res.json({success: true, message: "User created, Wahey!"})
+		res.json({success: true, message: "User created, yay!"})
 	})
 }
 
@@ -53,7 +53,7 @@ function update(req, res){
 
 		user.save(function(err){
 			if(err) res.send(err)
-			res.json({success: true, message: "you have been updated!"})
+			res.json({success: true, message: "updated!"})
 		})
 	})
 }
@@ -114,7 +114,7 @@ function checkUser(req, res, next){
 			}
 		})
 	} else {
-		res.status(403).send({success: false, message: "no token. You're not even trying"})
+		res.status(403).send({success: false, message: "no token."})
 	}
 	// this is going to run EVERY time our API is hit
 	// we want to check if the user is logged in here
@@ -130,7 +130,3 @@ module.exports = {
 	authenticate: authenticateUser,
 	checkUser: checkUser
 }
-
-
-
-

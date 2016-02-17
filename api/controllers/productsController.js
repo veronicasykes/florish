@@ -43,7 +43,7 @@ function updateProduct(req,res){
 function deleteProduct(req,res){
 	Product.findOneAndRemove({_id: req.params.id}, req.body, function(err,product){
 		if(err) throw err
-		res.json({message:"product deleted!"})
+		res.json({message:"product deleted"})
 	})
 }
 
