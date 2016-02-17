@@ -6,7 +6,7 @@ var express 	= require('express'),
 	port 		= process.env.PORT || 3000,
 	mongoose 	= require('mongoose'),
 	cors 		= require('cors'),
-	apiRouter 	= require('./api/routes/userRoutes'),
+	apiRouter 	= require('./api/routes/user_routes'),
 	mongoUri =  process.env.MONGOLAB_URI || 'mongodb://localhost:27017/florish';
 
 
