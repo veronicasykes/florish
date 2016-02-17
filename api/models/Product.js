@@ -3,9 +3,6 @@ var
 	Schema = mongoose.Schema
 
 var productSchema = new Schema({
-	type: {
-		pot:Boolean,
-		plant: Boolean},
 		name: String,
 		size: {
 		small: Boolean,

@@ -6,12 +6,13 @@ UsersController.$inject = ['$state', 'authFactory', '$rootScope', '$window']
 function UsersController($state, authFactory, $rootScope, $window) {
 	var vm = this
 	vm.user = {}
-	vm.loggedIn = null
+	vm.loggedIn = authFactory.isLoggedIn();
 	vm.signup = signup
 	vm.login = login
 	vm.logout = logout
 	vm.getUser = getUser
 	vm.error = null
+	getUser()
 
 	$rootScope.$on('$stateChangeStart', function() {
 		vm.loggedIn = authFactory.isLoggedIn();

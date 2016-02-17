@@ -14,12 +14,15 @@ function ProductsController (productsFactory, $modal){
 		.success(function(res){
 			vm.products = res
 		})
-	vm.addProduct = function(name, size, description, price, type, image, lightNeed){
-		var data = {name:name, size:size, description:description, image:image, type:type, price:price, lightNeed:lightNeed}
+	vm.addProduct = function(name, size, description, price, image, lightNeed){
+		var data = {name:name, size:size, description:description, image:image, price:price, lightNeed:lightNeed}
+		console.log(data)
+
 		vm.api.addProduct(data)
 			.then(function success(res){
 				vm.products.push(res.data.product)
 				vm.newProduct = {}
+				alert("product created")
 			})
 	}
 
