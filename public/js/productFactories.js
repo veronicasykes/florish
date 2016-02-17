@@ -5,7 +5,7 @@ angular
 productsFactory.$inject = ['$http']
 
 function productsFactory($http){
-	var productsUrl = 'http://localhost:3000/api/products'
+	var productsUrl = 'https://florish-app.herokuapp.com/api/products'
 	var products = {}
 
 	products.list = function(){
