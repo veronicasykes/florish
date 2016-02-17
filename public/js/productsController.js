@@ -16,12 +16,12 @@ function ProductsController (productsFactory, $modal){
 		})
 	vm.addProduct = function(name, size, description, price, type, image, lightNeed){
 		var data = {name:name, size:size, description:description, image:image, type:type, price:price, lightNeed:lightNeed}
-		console.log(data)
 		vm.api.addProduct(data)
 			.then(function success(res){
 				console.log(data)
 				vm.products.push(res.data.product)
 				vm.newProduct = {}
+				alert("product saved")
 			})
 	}
 
