@@ -48,8 +48,6 @@ function authInterceptorFactory($q, $location, authTokenFactory){
 // ==============================================
 
 
-var local = 'http://localhost:3000'
-var heroku = 'https://florish-app.herokuapp.com'
 
 
 angular.module('Florish')
@@ -58,11 +56,11 @@ authFactory.$inject = ['$http', '$q', 'authTokenFactory', '$window']
 function authFactory($http, $q, authTokenFactory, $window){
 	var authFactory = {}
 	authFactory.index = function(){
-		return $http.get( heroku + '/api/users')
+		return $http.get('https://florish-app.herokuapp.com/api/users')
 	}
 	// handle login
 	authFactory.login = function(username, password){
-		return $http.post(heroku + '/api/authenticate', {
+		return $http.post('https://florish-app.herokuapp.com/api/authenticate', {
 			username: username,
 			password: password
 		}).then(function(response){
@@ -71,7 +69,7 @@ function authFactory($http, $q, authTokenFactory, $window){
 		})
 	}
 	authFactory.signup = function(username, password){
-		return $http.post(heroku + '/api/users', {
+		return $http.post('https://florish-app.herokuapp.com/api/users', {
 			username: username,
 			password: password
 		})
@@ -91,7 +89,7 @@ function authFactory($http, $q, authTokenFactory, $window){
 	// get that user's info
 	authFactory.getUser = function(){
 		if(authTokenFactory.getToken()){
-			return $http.get( heroku + '/api/me?token=' + $window.localStorage.getItem('token') )
+			return $http.get('https://florish-app.herokuapp.com/api/me?token=' + $window.localStorage.getItem('token') )
 		} else {
 			return $q.reject({message: 'User has no token'})
 		}

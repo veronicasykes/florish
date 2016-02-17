@@ -8,12 +8,13 @@ function getAllProducts(req,res){
 
 function createProduct(req,res){
 	var newProduct = new Product
-	newProduct.type = req.body.type
+	newProduct.type.pot = req.body.type.pot
+	newProduct.type.plant = req.body.type.plant
 	newProduct.name = req.body.name
-	newProduct.size = req.body.size
-
-	newProduct.lightNeed = req.body.lightNeed
-
+	newProduct.size.small = req.body.size.small
+	newProduct.size.large = req.body.size.large
+	newProduct.lightNeed.lowLight = req.body.lightNeed.lowLight
+	newProduct.lightNeed.brightLight = req.body.lightNeed.brightLight
 	newProduct.description = req.body.description
 	newProduct.image = req.body.image
 	newProduct.price = req.body.price
