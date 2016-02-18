@@ -9,7 +9,8 @@ var productSchema = new Schema({
 	lightNeed: String,
 	description: String,
 	image: String,
-	price: Number
+	price: Number,
+	avatar_url: String
 })
 
 var Product = mongoose.model('Product', productSchema)

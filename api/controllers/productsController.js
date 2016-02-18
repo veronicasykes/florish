@@ -8,15 +8,18 @@ function getAllProducts(req,res){
 
 function createProduct(req,res){
 	var newProduct = new Product
+	newProduct.avatar_url = req.body.avatar_url
 	newProduct.name = req.body.name
 	// newProduct.size = req.body.size
 	// newProduct.type = req.body.type
 	// newProduct.lightNeed = req.body.lightNeed
 	// newProduct.description = req.body.description
 	// newProduct.price = req.body.price
-	newProduct.image = req.body.image
+	//newProduct.image = req.body.image
+
 	newProduct.save(function(err, product){
 		if(err) throw err
+		console.log(product)
 		res.json({message: "Product Saved!", product: product})
 	})
 }

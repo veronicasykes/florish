@@ -24,8 +24,10 @@ coverage
 build/Release
 
 # Dependency directory
-node_modules
+/node_modules
 auth.js
+/config
+
 
 # Optional npm cache directory
 .npm

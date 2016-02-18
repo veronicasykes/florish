@@ -7,6 +7,9 @@
 <button type="button" ng-show= "productsCtrl.options.light" ng-click="productsCtrl.selectLowLight()">low light plants</button>
 <button type="button" ng-show= "productsCtrl.options.light" ng-click="productsCtrl.selectBrightLight()">bright light plants</button> -->
 
+
+
+
             <button ng-click="productsCtrl.filterProducts()">All</button>
             <button ng-click="productsCtrl.filterProducts('lightNeed', 'lowLight')">Low Light</button>
             <button ng-click="productsCtrl.filterProducts('lightNeed', 'brightLight')">Bright Light</button>
@@ -18,10 +21,12 @@
 
 
 	<ul class="product-list small-block-grid-2">
+
 		<li ng-repeat="product in productsCtrl.filtered">
 
 			<figure>
 				<img ng-src="{{product.image}}" alt="{{product.name}}">
+
 				<figcaption>
 					<h3>	{{ product.name}} - {{ product.type }} - {{ product.lightNeed}} - size:  {{ product.size }} - {{product.price | currency}}</h3>
 					<button ng-click="productsCtrl.addToCart(product)">Add to cart</button>
@@ -46,3 +51,4 @@
 </div>
 
 <a ui-sref="shop">Start Over</a>
+<img class= "img-responsive" id="plantPic" src="{{productsCtrl.product.avatar_url}}"/>
