@@ -1,19 +1,35 @@
-
+<!--
 <img class="thumbnail" src="http://2.bp.blogspot.com/-u3eDE1uS194/UE6dxfYMg4I/AAAAAAAAHZM/8zzSY-MnDEE/s640/Elle+Decor+Fiddle+Leaf+Figs.jpg" ng-show= "productsCtrl.options.size" ng-click="productsCtrl.selectLarge()"/>
-<img class="thumbnail" src="https://img0.etsystatic.com/046/0/6172236/il_fullxfull.669542738_mkfg.jpg" ng-show= "productsCtrl.options.size" ng-click="productsCtrl.selectSmall()"/>
+
+<img class="thumbnail" src="https://img0.etsystatic.com/046/0/6172236/il_fullxfull.669542738_mkfg.jpg" ng-show= "productsCtrl.options.size" ng-click="productsCtrl.selectSmall()"/> -->
 
 
-
+<!--
 <button type="button" ng-show= "productsCtrl.options.light" ng-click="productsCtrl.selectLowLight()">low light plants</button>
-<button type="button" ng-show= "productsCtrl.options.light" ng-click="productsCtrl.selectBrightLight()">bright light plants</button>
+<button type="button" ng-show= "productsCtrl.options.light" ng-click="productsCtrl.selectBrightLight()">bright light plants</button> -->
+
+
+
+
+    <button ng-click="productsCtrl.filterProducts()">All</button>
+    <button ng-click="productsCtrl.filterProducts('lightNeed', 'low')">Low Light</button>
+    <button ng-click="productsCtrl.filterProducts('lightNeed', 'bright')">Bright Light</button>
+    <button ng-click="productsCtrl.filterProducts('type', 'hanging')">Hanging</button>
+    <button ng-click="productsCtrl.filterProducts('type', 'potted')">Potted</button>
+    <button ng-click="productsCtrl.filterProducts('size', 'S')">Small</button>
+    <button ng-click="productsCtrl.filterProducts('size', 'M')">Medium</button>
+    <button ng-click="productsCtrl.filterProducts('size', 'L')">Large</button>
 
 
 	<ul class="product-list small-block-grid-2">
-		<li ng-repeat="product in productsCtrl.products | filter: { size: {small: productsCtrl.customerPreference.small, large: productsCtrl.customerPreference.large}, lightNeed: {lowLight: productsCtrl.customerPreference.lowLight, brightLight: productsCtrl.customerPreference.brightLight}}">
+
+		<li ng-repeat="product in productsCtrl.filtered">
+
 			<figure>
-				<img ng-src="{{product.image}}" alt="{{product.name}}">
+        <img class= "img-responsive" id="plantPic" ng-src="{{product.avatar_url}}"/>
+
 				<figcaption>
-					<h3>{{product.name}}, {{product.price | currency}}</h3>
+					<h3>	{{ product.name}} - {{ product.type }} - {{ product.lightNeed}} - size:  {{ product.size }} - {{product.price | currency}}</h3>
 					<button ng-click="productsCtrl.addToCart(product)">Add to cart</button>
 				</figcaption>
 			</figure>
@@ -34,3 +50,5 @@
 
 	<button ng-click="productsCtrl.checkout();">Checkout</button>
 </div>
+
+<a ui-sref="shop">Start Over</a>

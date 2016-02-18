@@ -3,9 +3,9 @@ angular
 	.controller('ProductsController', ProductsController)
 
 
-ProductsController.$inject = ['productsFactory', '$modal']
+ProductsController.$inject = ['productsFactory', '$modal', '$window']
 
-function ProductsController (productsFactory, $modal){
+function ProductsController (productsFactory, $modal, $window){
 	var vm = this;
 	vm.api = productsFactory
 	vm.products = []
@@ -14,61 +14,77 @@ function ProductsController (productsFactory, $modal){
 		.success(function(res){
 			vm.products = res
 		})
-	vm.addProduct = function(name, size, description, price, type, image, lightNeed){
-		var data = {name:name, size:size, description:description, image:image, type:type, price:price, lightNeed:lightNeed}
+	vm.addProduct = function(avatar_url, name, size, lightNeed, type, price, description){
+		var data = {avatar_url:avatar_url, name:name, size:size, lightNeed: lightNeed, type:type, price:price, description:description}
+		console.log(data)
+
 		vm.api.addProduct(data)
 			.then(function success(res){
 				console.log(data)
 				vm.products.push(res.data.product)
 				vm.newProduct = {}
-				alert("product saved")
+
+				console.log(res.data.product.avatar_url)
+				alert("product created")
 			})
 	}
 
-	vm.customerPreference = {
-		lowLight: false,
-		brightLight: false,
-		small: false,
-		large: false
-	}
+	vm.filtered = vm.products;
 
-	vm.selectSmall = selectSmall
-	vm.selectLarge = selectLarge
-	vm.selectLowLight = selectLowLight
-	vm.selectBrightLight = selectBrightLight
-	vm.swapBtns = swapBtns
-	vm.hideAllBtns = hideAllBtns
+	vm.filterProducts = function(prop, value) {
+					if(!prop || !value) {
+							vm.filtered = vm.products;
+							return;
+					}
 
-	function selectSmall() {
-		vm.swapBtns()
-		vm.customerPreference.small = true
-	}
-	function selectLarge() {
-		vm.customerPreference.large = true
-		vm.swapBtns()
-	}
-	function selectLowLight() {
-		vm.customerPreference.lowLight = true
-		vm.hideAllBtns()
-	}
-	function selectBrightLight() {
-		vm.customerPreference.brightLight = true
-		vm.hideAllBtns()
-	}
+			vm.filtered = vm.products.filter(function(item) {
+					return item[prop] === value;
+			});
+	};
 
-	vm.options = {
-		size: true,
-		light: false
-	}
+		//
+		//
+		// vm.selectSmall = selectSmall
+		// vm.selectLarge = selectLarge
+		// vm.selectLowLight = selectLowLight
+		// vm.selectBrightLight = selectBrightLight
+		// vm.swapBtns = swapBtns
+		// vm.hideAllBtns = hideAllBtns
+		//
+		// function selectSmall() {
+		// 	vm.swapBtns()
+		// 	vm.customerPreference.small = true
+		// }
+		// function selectLarge() {
+		// 	vm.customerPreference.large = true
+		// 	vm.swapBtns()
+		// }
+		// function selectLowLight() {
+		// 	vm.customerPreference.lowLight = true
+		// 	vm.hideAllBtns()
+		// }
+		// function selectBrightLight() {
+		// 	vm.customerPreference.brightLight = true
+		// 	vm.hideAllBtns()
+		// }
+		//
+		// vm.options = {
+		// 	size: true,
+		// 	light: false
+		// }
+		//
+		// function swapBtns(){
+		// 	vm.options.size = false
+		// 	vm.options.light = true
+		// }
+		//
+		// function hideAllBtns(){
+		// 	vm.options.light = false
+		// }
 
-	function swapBtns(){
-		vm.options.size = false
-		vm.options.light = true
-	}
 
-	function hideAllBtns(){
-		vm.options.light = false
-	}
+
+
 
 	vm.cart = [];
 
@@ -85,6 +101,7 @@ function ProductsController (productsFactory, $modal){
 				vm.cart.push(angular.extend({quantity: 1}, product));
 			}
 		};
+
 
 	vm.getCartPrice = function () {
 		var total = 0;
@@ -104,5 +121,80 @@ function ProductsController (productsFactory, $modal){
 			}
 		});
 	};
+
+	vm.uploadFile = function($window){
+		function init_upload(){
+			console.log("here")
+		}
+	}
+
+	vm.sthree = function(){
+	 /*
+				Function to carry out the actual PUT request to S3 using the signed request from the app.
+		*/
+	function upload_file(file, signed_request, url){
+		console.log(file)
+		console.log(signed_request)
+		console.log(url)
+		$window.localStorage.setItem('url', url)
+		var xhr = new XMLHttpRequest();
+		xhr.open("PUT", signed_request);
+		xhr.setRequestHeader('x-amz-acl', 'public-read');
+		xhr.onload = function() {
+			if (xhr.status === 200) {
+					document.getElementById("preview").src = url;
+					document.getElementById("avatar_url").value = url;
+					vm.newProduct.avatar_url = url
+			}
+		};
+		xhr.onerror = function() {
+				console.log("vanilla AJax call : " + JSON.stringify(xhr))
+				alert("Could not upload file.");
+		};
+		xhr.send(file);
+	}
+	/*
+		Function to get the temporary signed request from the app.
+		If request successful, continue to upload the file using this signed
+		request.
+	*/
+	function get_signed_request(file){
+		console.log("getting signed request")
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "http://localhost:3000/sign_s3?file_name="+file.name+"&file_type="+file.type);
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState === 4){
+			if(xhr.status === 200){
+				var response = JSON.parse(xhr.responseText);
+				upload_file(file, response.signed_request, response.url);
+			}
+			else{
+				alert("Could not get signed URL.");
+			}
+		}
+	};
+	xhr.send();
+	}
+	/*
+	 Function called when file input updated. If there is a file selected, then
+	 start upload procedure by asking for a signed request from the app.
+	*/
+		function init_upload(){
+			console.log("here");
+			var files = document.getElementById("file_input").files;
+			var file = files[0];
+			if(file == null){
+				alert("No file selected.");
+				return;
+			}
+			get_signed_request(file);
+			}
+			/*
+			 Bind listeners when the page loads.
+			*/
+			(function() {
+						window.document.querySelector("#file_input").addEventListener('change', init_upload)
+			})();
+		}
 
 }

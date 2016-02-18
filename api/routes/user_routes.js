@@ -2,8 +2,10 @@ var express = require('express')
 var apiRouter = express.Router() //get an instance of express router
 var usersController = require('../controllers/usersController')
 var productsController = require('../controllers/productsController')
-
+var auth = require('../auth.js')
+var stripe = require('stripe')(auth.key)
 var User = require('../models/User')
+
 
 
 // Non-Authenticated routes ===========
@@ -19,6 +21,27 @@ apiRouter.route('/authenticate')
 //products CRUD
 apiRouter.route('/products')
 	.get(productsController.getAllProducts)
+
+
+apiRouter.route('/payments')
+
+	.post(function(request, response) {
+		console.log("request token is", request.body.stripeToken)
+
+
+		var stripeToken = request.body.stripeToken;
+
+		var charge = stripe.charges.create({
+					amount: 1000,
+					currency: "usd",
+					source: stripeToken,
+					description: "payinguser@example.com"
+			}, function (err, charge) {
+					if (err && err.type === 'StripeCardError') {
+						console.log(err)
+					}
+			});
+	});
 
 // Authenticated routes  ==============
 //config middleware for auth
@@ -49,5 +72,7 @@ apiRouter.route('/products/:id')
 	.get(productsController.getOneProduct)
 	.patch(productsController.updateProduct)
 	.delete(productsController.deleteProduct)
+
+
 
 module.exports = apiRouter
