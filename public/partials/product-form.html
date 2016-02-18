@@ -16,19 +16,33 @@
 					<div class="form-group">
 				    	<input type="text" name="name" ng-model="productsCtrl.newProduct.name" placeholder="Name" class="form-control">
 				  </div>
+					<p id="status">Please Select A Size</p>
+					<div class="radio">
+						  <label><input type="radio" name="size" value="S" ng-model="productsCtrl.newProduct.size">Small</label>
+						</div>
+						<div class="radio">
+						  <label><input type="radio" name="size" value="M" ng-model="productsCtrl.newProduct.size">Medium</label>
+						</div>
+						<div class="radio">
+						  <label><input type="radio" name="size" value="L" ng-model="productsCtrl.newProduct.size">Large</label>
+						</div>
 
-					<div class="form-group">
-				    	<input type="text" name="size" ng-model="productsCtrl.newProduct.size" placeholder="Size" class="form-control">
-				  </div>
+						<p id="status">How Much Light Does the Plant Need?</p>
+						<div class="radio">
+							  <label><input type="radio" name="lightNeed" value="low" ng-model="productsCtrl.newProduct.lightNeed">Low Light</label>
+						</div>
+						<div class="radio">
+							  <label><input type="radio" name="lightNeed" value="bright" ng-model="productsCtrl.newProduct.lightNeed">Bright Light</label>
+						</div>
 
-					<div class="form-group">
-				    	<input type="text" name="lightNeed" ng-model="productsCtrl.newProduct.lightNeed" placeholder="Light Need" class="form-control">
-				  </div>
-
-					<div class="form-group">
-				    	<input type="text" name="type" ng-model="productsCtrl.newProduct.type" placeholder="Pot or Hanging?" class="form-control">
-				  </div>
-
+							<p>What Type of Plant Is It??</p>
+							<div class="radio">
+								  <label><input type="radio" name="type" value="pot" ng-model="productsCtrl.newProduct.type">Potted Plant</label>
+							</div>
+							<div class="radio">
+								  <label><input type="radio" name="type" value="hanging" ng-model="productsCtrl.newProduct.type">Hanging Plant</label>
+							</div>
+							<p>Price</p>
 					<div class="form-group">
 				    	<input type="number" name="price" ng-model="productsCtrl.newProduct.price" placeholder="Price" class="form-control">
 				  </div>
