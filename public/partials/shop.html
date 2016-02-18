@@ -12,13 +12,13 @@
 
 
     <button ng-click="productsCtrl.filterProducts()">All</button>
-    <button ng-click="productsCtrl.filterProducts('lightNeed', 'low')">Low Light</button>
-    <button ng-click="productsCtrl.filterProducts('lightNeed', 'bright')">Bright Light</button>
-    <button ng-click="productsCtrl.filterProducts('type', 'hanging')">Hanging</button>
-    <button ng-click="productsCtrl.filterProducts('type', 'potted')">Potted</button>
-    <button ng-click="productsCtrl.filterProducts('size', 'S')">Small</button>
-    <button ng-click="productsCtrl.filterProducts('size', 'M')">Medium</button>
-    <button ng-click="productsCtrl.filterProducts('size', 'L')">Large</button>
+    <button ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectLowLight()">Low Light</button>
+    <button ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectBrightLight()">Bright Light</button>
+    <button ng-show="productsCtrl.showType" ng-click="productsCtrl.selectHanging()">Hanging</button>
+    <button ng-show="productsCtrl.showType" ng-click="productsCtrl.selectPotted()">Potted</button>
+    <button ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectSmall()">Small</button>
+    <button ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectMedium()">Medium</button>
+    <button ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectLarge()">Large</button>
 
 
 	<ul class="product-list small-block-grid-2">

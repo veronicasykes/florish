@@ -40,19 +40,60 @@ function ProductsController (productsFactory, $modal, $window){
 			});
 	};
 
-		//
-		//
+
 		// vm.selectSmall = selectSmall
 		// vm.selectLarge = selectLarge
 		// vm.selectLowLight = selectLowLight
 		// vm.selectBrightLight = selectBrightLight
-		// vm.swapBtns = swapBtns
+		vm.showSize = true
+		vm.showType = false
+		vm.showLight = false
+
+
+
 		// vm.hideAllBtns = hideAllBtns
 		//
-		// function selectSmall() {
-		// 	vm.swapBtns()
-		// 	vm.customerPreference.small = true
-		// }
+		vm.selectSmall = function() {
+			console.log('selected small')
+			vm.filterProducts('size', 'S')
+			vm.showSize = false
+			vm.showType = true
+			console.log('after selected small')
+		}
+		vm.selectMedium = function() {
+			vm.filterProducts('size', 'M')
+			vm.showSize = false
+			vm.showType = true
+		}
+		vm.selectLarge = function() {
+			vm.filterProducts('size', 'L')
+			vm.showSize = false
+			vm.showType = true
+		}
+
+		vm.selectPotted = function() {
+			vm.filterProducts('type', 'potted')
+			vm.showType = false
+			vm.showLight = true
+		}
+
+		vm.selectHanging = function() {
+			vm.filterProducts('type', 'hanging')
+			vm.showType = false
+			vm.showLight = true
+		}
+
+		vm.selectLowLight = function() {
+			vm.filterProducts('light', 'low')
+			vm.showLight = false
+		}
+
+		vm.selectBrightLight = function() {
+			vm.filterProducts('light', 'bright')
+			vm.showLight = false
+		}
+
+
 		// function selectLarge() {
 		// 	vm.customerPreference.large = true
 		// 	vm.swapBtns()
@@ -66,15 +107,9 @@ function ProductsController (productsFactory, $modal, $window){
 		// 	vm.hideAllBtns()
 		// }
 		//
-		// vm.options = {
-		// 	size: true,
-		// 	light: false
-		// }
+
 		//
-		// function swapBtns(){
-		// 	vm.options.size = false
-		// 	vm.options.light = true
-		// }
+
 		//
 		// function hideAllBtns(){
 		// 	vm.options.light = false
