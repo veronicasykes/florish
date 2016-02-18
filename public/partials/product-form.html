@@ -2,20 +2,40 @@
 <div class="panel panel-default">
 	<div class="panel-heading"><h3 class="panel-title">Add A New Product</h3></div>
 	<div class="panel-body">
-		<form id="new-product-form" ng-submit="productsCtrl.addProduct(productsCtrl.newProduct.avatar_url, productsCtrl.newProduct.name)">
+		<form id="new-product-form" ng-submit="productsCtrl.addProduct(productsCtrl.newProduct.avatar_url, productsCtrl.newProduct.name, productsCtrl.newProduct.size, productsCtrl.newProduct.lightNeed, productsCtrl.newProduct.type, productsCtrl.newProduct.price, productsCtrl.newProduct.description )">
 					<div class="form-group">
 							<input type="file" id="file_input" ng-model="productsCtrl.newProduct.avatar_url" ng-click="productsCtrl.sthree()" class="form-control"/>
 				  		<p id="status">Please select a file</p>
 					</div>
 
-					<!-- <div class="form-group"> -->
+					<div class="form-group">
 				  	<img class="img-responsive"  id="preview" src="" />
 						<input type="hidden" id="avatar_url" name="avatar_url" ng-model="productsCtrl.newProduct.avatar_url" class="form-control" />
-					<!-- </div> -->
+					</div>
 
-					<!-- <div class="form-group"> -->
+					<div class="form-group">
 				    	<input type="text" name="name" ng-model="productsCtrl.newProduct.name" placeholder="Name" class="form-control">
-				  <!-- </div> -->
+				  </div>
+
+					<div class="form-group">
+				    	<input type="text" name="size" ng-model="productsCtrl.newProduct.size" placeholder="Size" class="form-control">
+				  </div>
+
+					<div class="form-group">
+				    	<input type="text" name="lightNeed" ng-model="productsCtrl.newProduct.lightNeed" placeholder="Light Need" class="form-control">
+				  </div>
+
+					<div class="form-group">
+				    	<input type="text" name="type" ng-model="productsCtrl.newProduct.type" placeholder="Pot or Hanging?" class="form-control">
+				  </div>
+
+					<div class="form-group">
+				    	<input type="number" name="price" ng-model="productsCtrl.newProduct.price" placeholder="Price" class="form-control">
+				  </div>
+
+					<div class="form-group">
+				    	<input type="text-area" name="description" ng-model="productsCtrl.newProduct.description" placeholder="Description" class="form-control">
+				  </div>
 
 
 					<div class="text-center">

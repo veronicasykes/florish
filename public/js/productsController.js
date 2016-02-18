@@ -14,8 +14,8 @@ function ProductsController (productsFactory, $modal, $window){
 		.success(function(res){
 			vm.products = res
 		})
-	vm.addProduct = function(avatar_url, name){
-		var data = {avatar_url:avatar_url, name:name}
+	vm.addProduct = function(avatar_url, name, size, lightNeed, type, price, description){
+		var data = {avatar_url:avatar_url, name:name, size:size, lightNeed: lightNeed, type:type, price:price, description:description}
 		console.log(data)
 
 		vm.api.addProduct(data)
