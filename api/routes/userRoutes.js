@@ -26,7 +26,7 @@ apiRouter.route('/products')
 apiRouter.route('/payments')
 
 	.post(function(request, response) {
-		console.log("request token is",request.body.stripeToken)
+		console.log("request token is", request.body.stripeToken)
 
 
 		var stripeToken = request.body.stripeToken;

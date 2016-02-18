@@ -20,8 +20,8 @@ angular
 				$scope.stripeError = result.error.message;
 			} else {
 				$scope.stripeToken = result.id;
-				console.log("result id on controller is", result.id)
-				return $http.post('http://localhost:3000/api/payments', result.id);
+				return $http.post('http://localhost:3000/api/payments', {stripeToken: result.id})
+
 			}
 		};
 
