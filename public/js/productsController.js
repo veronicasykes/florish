@@ -26,50 +26,18 @@ function ProductsController (productsFactory, $modal){
 			})
 	}
 
-	vm.customerPreference = {
-		lowLight: false,
-		brightLight: false,
-		small: false,
-		large: false
-	}
+	vm.filtered = vm.products;
 
-	vm.selectSmall = selectSmall
-	vm.selectLarge = selectLarge
-	vm.selectLowLight = selectLowLight
-	vm.selectBrightLight = selectBrightLight
-	vm.swapBtns = swapBtns
-	vm.hideAllBtns = hideAllBtns
+	vm.filterProducts = function(prop, value) {
+					if(!prop || !value) {
+							vm.filtered = vm.products;
+							return;
+					}
 
-	function selectSmall() {
-		vm.swapBtns()
-		vm.customerPreference.small = true
-	}
-	function selectLarge() {
-		vm.customerPreference.large = true
-		vm.swapBtns()
-	}
-	function selectLowLight() {
-		vm.customerPreference.lowLight = true
-		vm.hideAllBtns()
-	}
-	function selectBrightLight() {
-		vm.customerPreference.brightLight = true
-		vm.hideAllBtns()
-	}
-
-	vm.options = {
-		size: true,
-		light: false
-	}
-
-	function swapBtns(){
-		vm.options.size = false
-		vm.options.light = true
-	}
-
-	function hideAllBtns(){
-		vm.options.light = false
-	}
+			vm.filtered = vm.products.filter(function(item) {
+					return item[prop] === value;
+			});
+	};
 
 	vm.cart = [];
 

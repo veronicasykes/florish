@@ -3,18 +3,13 @@ var
 	Schema = mongoose.Schema
 
 var productSchema = new Schema({
+		type: String,
 		name: String,
-		size: {
-		small: Boolean,
-		large: Boolean,
-	},
-	lightNeed: {
-		brightLight: Boolean,
-		lowLight: Boolean,
-	},
+		size: String,
+	lightNeed: String,
 	description: String,
 	image: String,
-	price: String
+	price: Number
 })
 
 var Product = mongoose.model('Product', productSchema)
