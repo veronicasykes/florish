@@ -129,6 +129,7 @@ button.cancel:hover {
 	border-radius: 5px;
 	padding: 10px;
 	max-height: 400px !important;
+	text-align: center;
 }
 .thumbnail {
     width: 200px;
@@ -143,7 +144,7 @@ button.cancel:hover {
 .icon {
 	width: 200px;
 	height: 200px;
-	display:inline-flex;
+	display:inline;
 	padding: 20px;
 	border: 5px;
 	align-items: center;
@@ -153,18 +154,24 @@ button.cancel:hover {
 	margin-left: 20px;
 }
 
+img #low {
+	border-radius: 10px;
+}
+
 .product-list figure {
 	max-width: 100%;
 	overflow: hidden;
 	display: block;
 	position: relative;
+	border-color: darkgray;
+	border-width: 5px !important;
+	border-radius: 10px;
 }
 
 .product-list figure img {
 	position: relative;
 	transition: transform 0.4s;
-	border: darkgray !important;
-	border-width: 5px !important;
+
 }
 
 .product-list figcaption {

@@ -4,8 +4,8 @@
   <div class="choices" id="choices">
       <h2 class="fader ng-cloak" ng-show="productsCtrl.showWords">Click on An Icon to Start Shopping!</h2>
       <h2 class="fader ng-cloak" ng-show="productsCtrl.showResults">Your Results Are:</h2>
-    <h3 class="fader ng-cloak" ng-show="productsCtrl.showLight">Lots of Light or Just a Little?</h3>
-    <img class="icon fader ng-cloak" ng-src="/static_assets/low.png" ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectLowLight()"/>
+    <h3 class="fader ng-cloak" ng-show="productsCtrl.showLight">Lots of light, or just a little?</h3>
+    <img class="icon fader ng-cloak" id="low" ng-src="/static_assets/low.png" ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectLowLight()"/>
     <img class="icon fader ng-cloak" ng-src="/static_assets/bright.png" ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectBrightLight()"/>
       <h3 class="fader ng-cloak" ng-show="productsCtrl.showType">Do you want a potted plant or a hanging one?</h3>
     <img class="icon fader ng-cloak" ng-src="/static_assets/hanging.png" ng-show="productsCtrl.showType" ng-click="productsCtrl.selectHanging()"/>
@@ -47,7 +47,6 @@
 	<button ng-click="productsCtrl.checkout();">Checkout</button>
 </div>
 
-<a ui-sref="shop">Start Over</a>
 
     </div>
 

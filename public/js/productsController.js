@@ -46,10 +46,6 @@ function ProductsController (productsFactory, $modal, $window){
 	};
 
 
-		// vm.selectSmall = selectSmall
-		// vm.selectLarge = selectLarge
-		// vm.selectLowLight = selectLowLight
-		// vm.selectBrightLight = selectBrightLight
 		vm.showSize = true
 		vm.showType = false
 		vm.showLight = false
