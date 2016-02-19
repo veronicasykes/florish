@@ -26,6 +26,9 @@ button.cancel:hover {
 	background: gray;
 }
 
+.ng-cloak {
+	display: none !important;
+}
 
 .fader.ng-hide-add {
   opacity: 1.0;

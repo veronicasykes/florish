@@ -1,16 +1,16 @@
 
 
-
+  <h1>Click on An Icon to Start Shopping!</h1>
 
     <button ng-click="productsCtrl.filterProducts()">All</button>
-
-    <img class="thumbnail fader" ng-src="/static_assets/low.png" ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectLowLight()"/>
-    <img class="thumbnail fader" ng-src="/static_assets/bright.png" ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectBrightLight()"/>
-    <img class="thumbnail fader" ng-src="/static_assets/hanging.png" ng-show="productsCtrl.showType" ng-click="productsCtrl.selectHanging()"/>
-    <img class="thumbnail fader" ng-src="/static_assets/potted.png"ng-show="productsCtrl.showType" ng-click="productsCtrl.selectPotted()"/>
-    <img class="thumbnail fader" ng-src="/static_assets/small.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectSmall()"/>
-    <img class="thumbnail fader" ng-src="/static_assets/medium.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectMedium()"/>
-    <img class="thumbnail fader" ng-src="/static_assets/large.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectLarge()"/>
+    <h2 class="fader" ng-show="productsCtrl.showLight">Lots of Light or Just a Little?</h2>
+    <img class="thumbnail fader ng-cloak" ng-src="/static_assets/low.png" ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectLowLight()"/>
+    <img class="thumbnail fader ng-cloak" ng-src="/static_assets/bright.png" ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectBrightLight()"/>
+    <img class="thumbnail fader ng-cloak" ng-src="/static_assets/hanging.png" ng-show="productsCtrl.showType" ng-click="productsCtrl.selectHanging()"/>
+    <img class="thumbnail fader ng-cloak" ng-src="/static_assets/potted.png"ng-show="productsCtrl.showType" ng-click="productsCtrl.selectPotted()"/>
+    <img class="thumbnail fader ng-cloak" ng-src="/static_assets/small.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectSmall()"/>
+    <img class="thumbnail fader ng-cloak" ng-src="/static_assets/medium.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectMedium()"/>
+    <img class="thumbnail fader ng-cloak" ng-src="/static_assets/large.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectLarge()"/>
 
 
 	<ul class="product-list small-block-grid-2">
