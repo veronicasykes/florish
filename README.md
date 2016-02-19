@@ -42,10 +42,10 @@ MVP Mobile Version
 #Wireframes
 
 ![alt tag](https://github.com/veronicasykes/florish/blob/master/public/static_assets/DecisionPage.jpg)
+![alt tag](https://github.com/veronicasykes/florish/blob/master/public/static_assets/Florish.jpg)
+![alt tag](https://github.com/veronicasykes/florish/blob/master/public/static_assets/light_Page.jpg)
 
-![Alt text](/static_assets/Florish.png?raw=true "Optional Title")
-![Alt text](/static_assets/light_Page.png?raw=true "Optional Title")
 
 
 Repo Instructions- fork this repo and check out the Trello for outstanding tasks.
-Trello Link
+https://trello.com/b/LSZenTdw/florish
