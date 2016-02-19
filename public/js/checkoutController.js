@@ -20,7 +20,7 @@ angular
 				$scope.stripeError = result.error.message;
 			} else {
 				$scope.stripeToken = result.id;
-				return $http.post('http://florish-app.herokuapp.com/api/payments', {stripeToken: result.id})
+				return $http.post('https://florish-app.herokuapp.com/api/payments', {stripeToken: result.id})
 
 			}
 		};
