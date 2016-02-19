@@ -3,7 +3,7 @@ var apiRouter = express.Router() //get an instance of express router
 var usersController = require('../controllers/usersController')
 var productsController = require('../controllers/productsController')
 var auth = require('../auth.js')
-var stripe = require('stripe')(auth.key)
+var stripe = require('stripe')(process.env.stripeKey)
 var User = require('../models/User')
 
 
