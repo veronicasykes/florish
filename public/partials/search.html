@@ -10,14 +10,17 @@
         <select ng-model="plantOrder">
             <option value="productsCtrl.products.name">Name</option>
             <option value="productsCtrl.products._id">ID</option>
-            <option value="productsCtrl.products.image">image</option>
+
 
 
         </select>
     </div>
 
 
-        <div class="searchResults" ng-repeat="product in productsCtrl.products | filter:filterSearch">Name: {{ product.name }}
+        <div class="searchResults" ng-repeat="product in productsCtrl.products | filter:filterSearch">
+          Name: {{ product.name }}
+          <!-- <a ui-sref="#/admin/{{product._id}}">ID:</a> {{ product._id }} -->
+
           <img class= "thumbnail" ng-src="{{product.avatar_url}}"/>
         </div>
 
