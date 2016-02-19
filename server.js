@@ -8,11 +8,10 @@ var express 	= require('express'),
 	cors 		= require('cors'),
 	apiRouter 	= require('./api/routes/user_routes'),
 	aws				= require('aws-sdk'),
-	auth = require('./config/auth.js'),
 	mongoUri =  process.env.MONGOLAB_URI || 'mongodb://localhost:27017/florish',
-	AWS_ACCESS_KEY 	= process.env.AWS_ACCESS_KEY || auth.amazonAuth.clientID,
-	AWS_SECRET_KEY 	= process.env.AWS_SECRET_KEY || auth.amazonAuth.clientSecret,
-	S3_BUCKET 	 	= process.env.S3_BUCKET || auth.amazonAuth.callBackURL;
+	AWS_ACCESS_KEY 	= process.env.AWS_ACCESS_KEY
+	AWS_SECRET_KEY 	= process.env.AWS_SECRET_KEY
+	S3_BUCKET 	 	= process.env.S3_BUCKET
 
 
 
@@ -37,9 +36,6 @@ app.get('/sign_s3', function(req, res){
     aws.config.update({accessKeyId: AWS_ACCESS_KEY , secretAccessKey: AWS_SECRET_KEY });
     aws.config.update({region: '' , signatureVersion: '' });
     var s3 = new aws.S3();
-    console.log('bucket : ' + S3_BUCKET)
-    console.log('key : ' + AWS_ACCESS_KEY)
-    console.log('secret : ' + AWS_SECRET_KEY)
     var s3_params = {
         Bucket: S3_BUCKET,
         Key: req.query.file_name,
