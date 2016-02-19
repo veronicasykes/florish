@@ -1,4 +1,3 @@
-@import url(//fonts.googleapis.com/css?family=ABeeZee);
 
 html {
 	font-family: ABeeZee;
@@ -25,6 +24,17 @@ button.cancel {
 
 button.cancel:hover {
 	background: gray;
+}
+
+
+.fader.ng-hide-add {
+  opacity: 1.0;
+  display: block !important;
+  transition: opacity 1s;
+}
+
+.fader.ng-hide-add-active {
+  opacity: 0;
 }
 
 .product-list {
