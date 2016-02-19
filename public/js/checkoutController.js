@@ -22,7 +22,9 @@ angular
 				$scope.stripeToken = result.id;
 				return $http.post('https://florish-app.herokuapp.com/api/payments', {stripeToken: result.id})
 
+
 			}
+			alert("Checkout Complete")
 		};
 
 		$scope.hideAlerts = function () {

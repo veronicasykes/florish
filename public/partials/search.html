@@ -15,9 +15,11 @@
         </select>
     </div>
 
-    <ul>
-        <li ng-repeat="product in productsCtrl.products | filter:filterSearch">{{ product.name }}</li>
-    </ul>
+
+        <div class="searchResults" ng-repeat="product in productsCtrl.products | filter:filterSearch">Name: {{ product.name }}
+          <img class= "thumbnail" ng-src="{{product.avatar_url}}"/>
+        </div>
+
 </div>
 
 

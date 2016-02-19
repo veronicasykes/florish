@@ -51,6 +51,8 @@ function ProductsController (productsFactory, $modal, $window){
 		vm.showSize = true
 		vm.showType = false
 		vm.showLight = false
+		vm.showWords = true
+		vm.showResults = false
 
 
 
@@ -61,17 +63,20 @@ function ProductsController (productsFactory, $modal, $window){
 			vm.filterProducts('size', 'S')
 			vm.showSize = false
 			vm.showType = true
+			vm.showWords = false
 			console.log('after selected small')
 		}
 		vm.selectMedium = function() {
 			vm.filterProducts('size', 'M')
 			vm.showSize = false
 			vm.showType = true
+			vm.showWords = false
 		}
 		vm.selectLarge = function() {
 			vm.filterProducts('size', 'L')
 			vm.showSize = false
 			vm.showType = true
+			vm.showWords = false
 		}
 
 		vm.selectPotted = function() {
@@ -89,11 +94,15 @@ function ProductsController (productsFactory, $modal, $window){
 		vm.selectLowLight = function() {
 			vm.filterProducts('lightNeed', 'low')
 			vm.showLight = false
+			vm.showResults = true
+
 		}
 
 		vm.selectBrightLight = function() {
 			vm.filterProducts('lightNeed', 'bright')
 			vm.showLight = false
+			vm.showResults = true
+
 		}
 
 

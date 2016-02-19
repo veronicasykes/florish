@@ -1,7 +1,63 @@
 
-html {
+body {
 	font-family: ABeeZee;
-	color: darkgray;
+	background-color: darkgray;
+}
+
+h1{
+	font-family: ABeeZee;
+	text-align: center;
+		color: darkgreen;
+}
+
+h2 {
+	font-family: ABeeZee;
+	text-align: center;
+		color: darkgreen;
+}
+h3 {
+	font-family: ABeeZee;
+	text-align: center;
+		color: darkgreen;
+}
+
+.searchResults {
+	background-color: lightgray;
+}
+
+
+
+
+body .background {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+	z-index: -1;
+
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+
+}
+
+footer {
+	text-align: center;
+	color: white;
+}
+
+
+.navbar-default .navbar-brand {
+	font-size: 24px;
+	color: darkgreen;
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: darkgreen;
 }
 
 
@@ -9,12 +65,19 @@ html {
 	 border-width: 0px;
 	 -webkit-box-shadow: 0px 0px;
 	 box-shadow: 0px 0px;
-	 background-color: rgba(0,0,0,0.0);
+	 /*background-color: rgba(0,0,0,0.0);*/
+	 	background-color: 	#F0F0F0;
 	 background-image: -webkit-gradient(linear, 50.00% 0.00%, 50.00% 100.00%, color-stop( 0% , rgba(0,0,0,0.00)),color-stop( 100% , rgba(0,0,0,0.00)));
 	 background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
 	 background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+
 }
 
+.img-responsive {
+	border: darkgray;
+	border-width: 5px;
+
+}
 
 
 button.cancel {
@@ -23,7 +86,7 @@ button.cancel {
 }
 
 button.cancel:hover {
-	background: gray;
+	background: darkgreen;
 }
 
 .ng-cloak {
@@ -41,23 +104,9 @@ button.cancel:hover {
 
 .product-list {
 	margin: 0 0 170px 0;
+	background-color: white;
 }
 
-.home img {
-  /* Set rules to fill background */
-  min-height: 100%;
-  min-width: 1024px;
-	z-index: -1;
-
-  /* Set up proportionate scaling */
-  width: 100%;
-  height: auto;
-
-  /* Set up positioning */
-  position: fixed;
-  top: 0;
-  left: 0;
-}
 
 @media screen and (max-width: 1024px) { /* Specific to this particular image */
   .home img {
@@ -65,11 +114,35 @@ button.cancel:hover {
     margin-left: -512px;   /* 50% */
   }
 }
-.thumbnail{
+
+.choices{
+	background-color: white;
+	border-color: gray;
+	border-radius: 5px;
+	padding: 10px;
+	max-height: 400px !important;
+}
+.thumbnail {
     width: 200px;
     height: 200px;
 		display:inline-block;
-		padding: 20px;
+		padding: 50px;
+		border: 5px;
+		border-color: white;
+		border-radius: 5px;
+		background-color: white;
+}
+
+.icon {
+	width: 200px;
+	height: 200px;
+	display:inline-flex;
+	padding: 50px;
+	border: 5px;
+	border-color: white;
+	border-radius: 10px;
+	background-color: white;
+	margin-left: 20px;
 }
 
 .product-list figure {
@@ -82,9 +155,12 @@ button.cancel:hover {
 .product-list figure img {
 	position: relative;
 	transition: transform 0.4s;
+	border: darkgray !important;
+	border-width: 5px !important;
 }
 
 .product-list figcaption {
+	font-family: ABeeZee;
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -92,8 +168,8 @@ button.cancel:hover {
 	text-align: center;
 	padding: 20px;
 	height: 128px;
-	background: gray;
-	color: lightgray;
+	background: darkgray;
+	color: darkgreen;
 	transform: translateY(100%);
 	transition: transform 0.4s, opacity 0.1s 0.3s;
 	opacity: 0;
@@ -104,14 +180,15 @@ button.cancel:hover {
 }
 
 .product-list figcaption h3 {
+	font-family: ABeeZee;
 	margin: 0 0 8px;
 	padding: 0;
-	color: #fff;
-	font-size: 18px;
+	color: white;
+	font-size: 16px;
 }
 
 .product-list figcaption button{
-	background: darkgray;
+	background: darkgreen;
 }
 
 .product-list figure:hover img {
@@ -119,6 +196,7 @@ button.cancel:hover {
 }
 
 .product-list figure:hover figcaption {
+	font-family: ABeeZee;
 	opacity: 1;
 	transform: translateY(0px);
 	transition: transform 0.4s, opacity 0.1s;
@@ -136,6 +214,7 @@ button.cancel:hover {
 }
 
 .shopping-cart h2 {
+	font-family: ABeeZee;
 	font-size: 14px;
 	font-weight: bold;
 	color: white;
@@ -192,11 +271,14 @@ button.cancel:hover {
     margin: 0 auto;
 		font-family: ABeeZee;
 		color: darkgray;
+		background-color: 	#F0F0F0;
 
 }
 .form-signin .form-signin-heading, .form-signin .checkbox
 {
     margin-bottom: 10px;
+		font-family: ABeeZee;
+			background-color: 	#F0F0F0;
 }
 .form-signin .checkbox
 {
@@ -212,6 +294,7 @@ button.cancel:hover {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+			background-color: 	#F0F0F0;
 }
 .form-signin .form-control:focus
 {
@@ -220,6 +303,7 @@ button.cancel:hover {
 .form-signin input[type="text"]
 {
     margin-bottom: -1px;
+			font-family: ABeeZee;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
@@ -227,6 +311,7 @@ button.cancel:hover {
 {
     margin-bottom: 10px;
     border-top-left-radius: 0;
+			font-family: ABeeZee;
     border-top-right-radius: 0;
 }
 .account-wall
@@ -240,12 +325,15 @@ button.cancel:hover {
 		font-family: ABeeZee;
 		color: darkgray;
 		text-align: center;
+			background-color: 	#F0F0F0;
+
 }
 .login-title
 {
     color: #555;
     font-size: 18px;
     font-weight: 400;
+		font-family: ABeeZee;
     display: block;
 }
 .profile-img
@@ -265,5 +353,7 @@ button.cancel:hover {
 .new-account
 {
     display: block;
+		font-family: ABeeZee;
+		color:black;
     margin-top: 10px;
 }
