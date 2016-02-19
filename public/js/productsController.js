@@ -41,11 +41,6 @@ function ProductsController (productsFactory, $modal, $window){
 					return item[prop] === value;
 			});
 
-			if (vm.showSize === false && vm.showType === true && vm.showLight === true {
-				vm.showSize = true
-				vm.showType = false
-				vm.showLight = false
-			}
 	};
 
 
