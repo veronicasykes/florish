@@ -1,8 +1,8 @@
-# florish
+# Florish
 Plants on Demand
 
 #Intro-
-Florish is a product that allows businesses and consumers to seamlessly input their needs and be directed to the perfect plants for their space. Offices who wants some life and modern design elements can place orders and have plants delivered to their office. Renters and homeowners order plants for their homes at the touch of a finger, and best thing is knows when the plants need water and reminds you to water them.
+Florish is a product that allows businesses and consumers to seamlessly input their needs and be directed to the perfect plants for their space. People who want some life and modern design elements in their office or hom can place orders and have plants delivered right to them. 
 
 #Technologies Used:
 MongoDB
@@ -13,7 +13,7 @@ HTML
 CSS
 Stripe API
 Heroku
-Ionic
+Amazon S3
 
 #Target User Stories
 1- An office manager has been tasked with sprucing the place up. She doesn't have time to go to a nursery and has no idea what plants to buy. She wants to be guided through the process to have the plants delivered.
@@ -25,17 +25,17 @@ MVP Web Version
 2- A user wants to browse plants
 3- A user needs to check out securely through Stripe and receive an order confirmation.
 
-MVP Mobile Version
-1- A user can browse plants and checkout using Stripe.
-2- A user wants reminders when the plant needs water and how much to water it.
-
-2.0 Web
+2.0 Web (Coming Later)
 1- Outdoor Spaces: select from different "looks" for your garden and purchase a package.
 2- Purchase a consultation from a designer.
 3- Browse how-to guides.
 4- Get help installing
 
-2.0 Mobile
+MVP Mobile Version (Coming Soon) 
+1- A user can browse plants and checkout using Stripe.
+2- A user wants reminders when the plant needs water and how much to water it.
+
+2.0 Mobile (Coming Later)
 1- A user wants to upload a light meter reading from their phone to determine their light needs.
 2- A user wants to track their order status and delivery driver to know when to be home.
 
