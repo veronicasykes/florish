@@ -125,13 +125,14 @@ button.cancel:hover {
 
 .choices{
 	background-color: white;
-	opacity: .9;
 	border-color: gray;
 	border-radius: 5px;
 	padding: 10px;
 	max-height: 400px !important;
 	text-align: center;
 }
+
+
 .thumbnail {
     width: 200px;
     height: 200px;
@@ -140,6 +141,7 @@ button.cancel:hover {
 		border-color: white;
 		border-radius: 5px;
 		background-color: white;
+
 }
 
 .icon {
