@@ -41,7 +41,8 @@ MVP Mobile Version
 
 #Wireframes
 
-![Alt text](/static_assets/DecisionPage.png?raw=true "Optional Title")
+![alt tag](https://github.com/veronicasykes/florish/blob/master/public/static_assets/DecisionPage.jpg)
+
 ![Alt text](/static_assets/Florish.png?raw=true "Optional Title")
 ![Alt text](/static_assets/light_Page.png?raw=true "Optional Title")
 
