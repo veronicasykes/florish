@@ -196,7 +196,7 @@ function ProductsController (productsFactory, $modal, $window){
 	function get_signed_request(file){
 		console.log("getting signed request")
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "https://localhost:3000/sign_s3?file_name="+file.name+"&file_type="+file.type);
+	xhr.open("GET", "https://florish-app.herokuapps.com/sign_s3?file_name="+file.name+"&file_type="+file.type);
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState === 4){
 			if(xhr.status === 200){
