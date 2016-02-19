@@ -32,6 +32,8 @@ function ProductsController (productsFactory, $modal, $window){
 	vm.filtered = vm.products;
 
 	vm.filterProducts = function(prop, value) {
+				console.log("prop is", prop)
+				console.log("value is", value)
 					if(!prop || !value) {
 							vm.filtered = vm.products;
 							return;
