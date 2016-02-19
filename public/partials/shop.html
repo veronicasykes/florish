@@ -13,14 +13,13 @@
 
     <button ng-click="productsCtrl.filterProducts()">All</button>
 
-    <button ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectLowLight()">Low Light</button>
-    <button ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectBrightLight()">Bright Light</button>
-    <button ng-show="productsCtrl.showType" ng-click="productsCtrl.selectHanging()">Hanging</button>
-    <button ng-show="productsCtrl.showType" ng-click="productsCtrl.selectPotted()">Potted</button>
-    <!-- <button ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectSmall()">Small</button> -->
-    <img class= "img-responsive" ng-src="/static_assets/small.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectSmall()"/>
-    <button ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectMedium()">Medium</button>
-    <button ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectLarge()">Large</button>
+    <img class="img-responsive" ng-src="/static_assets/low.png" ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectLowLight()"/>
+    <img class="img-responsive" ng-src="/static_assets/bright.png" ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectBrightLight()"/>
+    <img class="img-responsive" ng-src="/static_assets/hanging.png" ng-show="productsCtrl.showType" ng-click="productsCtrl.selectHanging()"/>
+    <img class="img-responsive" ng-src="/static_assets/potted.png"ng-show="productsCtrl.showType" ng-click="productsCtrl.selectPotted()"/>
+    <img class="img-responsive" ng-src="/static_assets/small.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectSmall()"/>
+    <img class="img-responsive" ng-src="/static_assets/medium.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectMedium()"/>
+    <img class="img-responsive" ng-src="/static_assets/large.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectLarge()"/>
 
 
 	<ul class="product-list small-block-grid-2">
