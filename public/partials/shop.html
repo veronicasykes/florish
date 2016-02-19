@@ -27,7 +27,7 @@
         <img class= "img-responsive" id="plantPic" ng-src="{{product.avatar_url}}"/>
 
 				<figcaption>
-					<h3>	{{ product.name}} - {{ product.type }} - {{ product.lightNeed}} - size:  {{ product.size }} - {{product.price | currency}}</h3>
+					<h3>	{{ product.name}} - {{product.price | currency}}</h3>
 					<button ng-click="productsCtrl.addToCart(product)">Add to cart</button>
 				</figcaption>
 			</figure>
