@@ -18,7 +18,7 @@ function ProductDetailsController(productsFactory,$stateParams,$location){
 	vm.showProduct($stateParams.productId)
 
 	vm.updateProduct = function(avatar_url, name, size, lightNeed, type, price, description){
-		var data = {avatar_url:avatar_url, name:name, size:size, lightNeed: lightNeed, type:type, price:price, description:description}
+		var data = {avatar_url:avatar_url, name:name, size:size, lightNeed:lightNeed, type:type, price:price, description:description}
 		vm.api.updateProduct(productId,data).success(function(response){
 			console.log(response)
 			vm.product = response
