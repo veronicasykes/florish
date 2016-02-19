@@ -18,8 +18,8 @@
 
 
         <div class="searchResults" ng-repeat="product in productsCtrl.products | filter:filterSearch">
-          Name: {{ product.name }}
-          <!-- <a ui-sref="#/admin/{{product._id}}">ID:</a> {{ product._id }} -->
+          Name: {{ product.name }} ID {{ product._id }} 
+          <!-- <a ui-sref="#/admin/{{product._id}}">ID:</a> -->
 
           <img class= "thumbnail" ng-src="{{product.avatar_url}}"/>
         </div>
