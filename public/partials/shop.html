@@ -12,11 +12,13 @@
 
 
     <button ng-click="productsCtrl.filterProducts()">All</button>
+
     <button ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectLowLight()">Low Light</button>
     <button ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectBrightLight()">Bright Light</button>
     <button ng-show="productsCtrl.showType" ng-click="productsCtrl.selectHanging()">Hanging</button>
     <button ng-show="productsCtrl.showType" ng-click="productsCtrl.selectPotted()">Potted</button>
-    <button ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectSmall()">Small</button>
+    <!-- <button ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectSmall()">Small</button> -->
+    <img class= "img-responsive" ng-src="/static_assets/small.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectSmall()"/>
     <button ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectMedium()">Medium</button>
     <button ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectLarge()">Large</button>
 
@@ -42,7 +44,7 @@
 
 	<span class="cart-item th radius" ng-repeat="product in productsCtrl.cart">
 
-		<img ng-src="{{product.image}}" title="{{product.name}}"/>
+		<img ng-src="{{product.avatar_url}}" title="{{product.name}}"/>
 		<span class="badge" ng-show="product.quantity > 1">
 			x{{product.quantity}}
 		</span>
