@@ -8,17 +8,18 @@
     <div>
         Sort By:
         <select ng-model="plantOrder">
-            <option value="productsCtrl.products.name">Name</option>
-            <option value="productsCtrl.products._id">ID</option>
-
-
+            <option value="name">Name</option>
+            <option value="_id">ID</option>
 
         </select>
     </div>
 
 
-        <div class="searchResults" ng-repeat="product in productsCtrl.products | filter:filterSearch">
-          Name: {{ product.name }} ID {{ product._id }} 
+        <div class="searchResults" ng-repeat="product in productsCtrl.products | orderBy:plantOrder | filter:filterSearch">
+        <div class="searchContent">
+          Name: {{ product.name }} <br> ID: {{ product._id }} <br> Size: {{ product.size }}
+          <br> Type: {{ product.type }} <br> Light Need: {{ product.lightNeed}}
+        </div>
           <!-- <a ui-sref="#/admin/{{product._id}}">ID:</a> -->
 
           <img class= "thumbnail" ng-src="{{product.avatar_url}}"/>
