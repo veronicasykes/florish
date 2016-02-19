@@ -86,12 +86,12 @@ function ProductsController (productsFactory, $modal, $window){
 		}
 
 		vm.selectLowLight = function() {
-			vm.filterProducts('light', 'low')
+			vm.filterProducts('lightNeed', 'low')
 			vm.showLight = false
 		}
 
 		vm.selectBrightLight = function() {
-			vm.filterProducts('light', 'bright')
+			vm.filterProducts('lightNeed', 'bright')
 			vm.showLight = false
 		}
 
