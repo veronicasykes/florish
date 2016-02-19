@@ -29,7 +29,6 @@ button.cancel:hover {
 
 .fader.ng-hide-add {
   opacity: 1.0;
-  display: block !important;
   transition: opacity 1s;
 }
 
