@@ -43,8 +43,6 @@ MVP Mobile Version (Coming Soon)
 
 ![alt tag](https://github.com/veronicasykes/florish/blob/master/public/static_assets/DecisionPage.jpg)
 ![alt tag](https://github.com/veronicasykes/florish/blob/master/public/static_assets/Florish.jpg)
-![alt tag](https://github.com/veronicasykes/florish/blob/master/public/static_assets/light_Page.jpg)
-
 
 
 Repo Instructions- fork this repo and check out the Trello for outstanding tasks.
