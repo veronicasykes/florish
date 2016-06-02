@@ -55,7 +55,8 @@ function ProductsController (productsFactory, $modal, $window){
 		vm.showBack = false
 
 		vm.nextStep = function(back) {
-			console.log('back',back)
+			console.log('vm.filtered',vm.filtered)
+
 			if (back) {
 				vm.step--
 			}else{
