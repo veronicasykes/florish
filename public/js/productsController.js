@@ -52,71 +52,58 @@ function ProductsController (productsFactory, $modal, $window){
 		vm.showType = false
 		vm.showLight = false
 		vm.showWords = true
-		vm.showResults = false
+		//vm.showResults = false
 
+		vm.nextStep = function() {
+			vm.step++
+			console.log("step:",vm.step)
+			if (vm.step == 1) {
+				vm.showSize = false
+				vm.showType = true
+				vm.showWords = false
+			}else if (vm.step == 2) {
+				vm.showType = false
+				vm.showLight = true
+			}else if (vm.step == 3) {
+				vm.showLight = false
+				//vm.showResults = true
+			}
+		}
 
 
 		// vm.hideAllBtns = hideAllBtns
 		//
 		vm.selectSmall = function() {
 			console.log('selected small')
-			vm.step++
-			console.log("step:",vm.step)
 			vm.filterProducts('size', 'S')
-			vm.showSize = false
-			vm.showType = true
-			vm.showWords = false
 			console.log('after selected small')
+			vm.nextStep()
 		}
 		vm.selectMedium = function() {
-			vm.step++
-			console.log("step:",vm.step)
 			vm.filterProducts('size', 'M')
-			vm.showSize = false
-			vm.showType = true
-			vm.showWords = false
+			vm.nextStep()
 		}
 		vm.selectLarge = function() {
-			vm.step++
-			console.log("step:",vm.step)
 			vm.filterProducts('size', 'L')
-			vm.showSize = false
-			vm.showType = true
-			vm.showWords = false
+			vm.nextStep()
 		}
 
 		vm.selectPotted = function() {
-			vm.step++
-			console.log("step:",vm.step)
 			vm.filterProducts('type', 'potted')
-			vm.showType = false
-			vm.showLight = true
+			vm.nextStep()
 		}
-
 		vm.selectHanging = function() {
-			vm.step++
-			console.log("step:",vm.step)
 			vm.filterProducts('type', 'hanging')
-			vm.showType = false
-			vm.showLight = true
+			vm.nextStep()
 		}
 
 		vm.selectLowLight = function() {
-			vm.step++
-			console.log("step:",vm.step)
 			vm.filterProducts('lightNeed', 'low')
-			vm.showLight = false
-			vm.showResults = true
-
+			vm.nextStep()
 		}
-
 		vm.selectBrightLight = function() {
-			vm.step++
-			console.log("step:",vm.step)
 			vm.filterProducts('lightNeed', 'bright')
-			vm.showLight = false
-			vm.showResults = true
-
+			vm.nextStep()
 		}
 
 		vm.finalStep = function() {
