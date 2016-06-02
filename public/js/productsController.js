@@ -52,24 +52,41 @@ function ProductsController (productsFactory, $modal, $window){
 		vm.showType = false
 		vm.showLight = false
 		vm.showWords = true
-		//vm.showResults = false
+		vm.showBack = false
 
-		vm.nextStep = function() {
-			vm.step++
+		vm.nextStep = function(back) {
+			console.log('back',back)
+			if (back) {
+				vm.step--
+			}else{
+				vm.step++
+			}
 			console.log("step:",vm.step)
-			if (vm.step == 1) {
+
+			if(vm.step == 0){
+				vm.showSize = true
+				vm.showType = false
+				vm.showLight = false
+				vm.showWords = true
+				vm.showBack = false
+			}else if (vm.step == 1) {
 				vm.showSize = false
 				vm.showType = true
 				vm.showWords = false
+				vm.showBack = true
 			}else if (vm.step == 2) {
 				vm.showType = false
 				vm.showLight = true
+				vm.showBack = true
 			}else if (vm.step == 3) {
 				vm.showLight = false
-				//vm.showResults = true
+				vm.showBack = true
 			}
 		}
-
+		vm.back = function() {
+			console.log('hit back')
+			vm.nextStep(true)
+		}
 
 		// vm.hideAllBtns = hideAllBtns
 		//
