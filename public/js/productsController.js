@@ -13,8 +13,11 @@ function ProductsController (productsFactory, $modal, $window){
 	vm.api.list()
 		.success(function(res){
 			vm.products = res
+			console.log('vm.products',vm.products)
 		})
 	vm.step = 0
+	vm.filterArray = []
+
 	vm.addProduct = function(avatar_url, name, size, lightNeed, type, price, description){
 		var data = {avatar_url:avatar_url, name:name, size:size, lightNeed: lightNeed, type:type, price:price, description:description}
 		console.log(data)
@@ -30,23 +33,35 @@ function ProductsController (productsFactory, $modal, $window){
 			})
 	}
 
-	vm.filtered = vm.products;
+	//vm.filtered = vm.products;
+	vm.filtered = []
 
 	vm.filterProducts = function(prop, value) {
-				console.log("prop is", prop)
-				console.log("value is", value)
+				//console.log("prop is", prop)
+				//console.log("value is", value)
 					if(!prop || !value) {
 							vm.filtered = vm.products;
 							return;
 					}
 
 			vm.filtered = vm.products.filter(function(item) {
-				console.log('item[prop]', item[prop])
+				//console.log('item', item)
+				//console.log('item[prop]', item[prop])
 					return item[prop] === value;
 			});
 
 	};
-
+	vm.findByFilters = function(array) {
+		console.log('vm.filterArray',vm.filterArray)
+		for (var i = 0; i < vm.products.length; i++) {
+			//console.log('vm.products'+ i + '.size',vm.products[i].size)
+			if (vm.products[i].size == vm.filterArray[0] && vm.products[i].type == vm.filterArray[1] && vm.products[i].lightNeed == vm.filterArray[2]) {
+				vm.filtered[i] = vm.products[i]
+			}
+		}
+		console.log('vm.filtered',vm.filtered)
+		vm.finalStep()
+	}
 
 		vm.showSize = true
 		vm.showType = false
@@ -56,9 +71,12 @@ function ProductsController (productsFactory, $modal, $window){
 
 		vm.nextStep = function(back) {
 			console.log('vm.filtered',vm.filtered)
+			console.log('vm.filterArray',vm.filterArray)
 
 			if (back) {
 				vm.step--
+				vm.filterArray.splice((step - 1), 1)
+				console.log('vm.filterArray',vm.filterArray)
 			}else{
 				vm.step++
 			}
@@ -82,6 +100,7 @@ function ProductsController (productsFactory, $modal, $window){
 			}else if (vm.step == 3) {
 				vm.showLight = false
 				vm.showBack = true
+				vm.findByFilters(vm.filterArray)
 			}
 		}
 		vm.back = function() {
@@ -93,40 +112,47 @@ function ProductsController (productsFactory, $modal, $window){
 		//
 		vm.selectSmall = function() {
 			console.log('selected small')
-			vm.filterProducts('size', 'S')
-			console.log('after selected small')
+			//vm.filterProducts('size', 'S')
+			vm.filterArray.push('S')
 			vm.nextStep()
 		}
 		vm.selectMedium = function() {
-			vm.filterProducts('size', 'M')
+			//vm.filterProducts('size', 'M')
+			vm.filterArray.push('M')
 			vm.nextStep()
 		}
 		vm.selectLarge = function() {
-			vm.filterProducts('size', 'L')
+			//vm.filterProducts('size', 'L')
+			vm.filterArray.push('L')
 			vm.nextStep()
 		}
 
 		vm.selectPotted = function() {
-			vm.filterProducts('type', 'potted')
+			//vm.filterProducts('type', 'potted')
+			vm.filterArray.push('potted')
 			vm.nextStep()
 		}
 		vm.selectHanging = function() {
-			vm.filterProducts('type', 'hanging')
+			//vm.filterProducts('type', 'hanging')
+			vm.filterArray.push('hanging')
 			vm.nextStep()
 		}
 
 		vm.selectLowLight = function() {
-			vm.filterProducts('lightNeed', 'low')
+			//vm.filterProducts('lightNeed', 'low')
+			vm.filterArray.push('low')
 			vm.nextStep()
 		}
 		vm.selectBrightLight = function() {
-			vm.filterProducts('lightNeed', 'bright')
+			//vm.filterProducts('lightNeed', 'bright')
+			vm.filterArray.push('bright')
 			vm.nextStep()
 		}
-
+		vm.done = false
 		vm.finalStep = function() {
-			if (vm.step === 3){return true}
-			return false
+			// if (vm.step === 3){return true}
+			// return false
+			vm.done = true
 		}
 		// function selectLarge() {
 		// 	vm.customerPreference.large = true
