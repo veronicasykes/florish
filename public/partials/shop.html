@@ -7,19 +7,32 @@
       <h2 class="fader ng-cloak" ng-show="productsCtrl.showWords">Click on An Icon to Start Shopping!</h2>
       <h2 class="fader ng-cloak" ng-show="productsCtrl.showResults">Your Results Are:</h2>
     <h3 class="fader ng-cloak" ng-show="productsCtrl.showLight">Lots of light, or just a little?</h3>
-    <img class="icon fader ng-cloak" id="low" ng-src="/static_assets/low.png" ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectLowLight()"/>
+    <a href="#">
+    <img href="#" class="icon fader ng-cloak" id="low" ng-src="/static_assets/low.png" ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectLowLight()"/>
+    </a>
+    <a href="#">
     <img class="icon fader ng-cloak" ng-src="/static_assets/bright.png" ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectBrightLight()"/>
       <h3 class="fader ng-cloak" ng-show="productsCtrl.showType">Do you want a potted plant or a hanging one?</h3>
+	   </a>
+	   <a href="#">
     <img class="icon fader ng-cloak" ng-src="/static_assets/hanging.png" ng-show="productsCtrl.showType" ng-click="productsCtrl.selectHanging()"/>
+    <a href="#">
     <img class="icon fader ng-cloak" ng-src="/static_assets/potted.png"ng-show="productsCtrl.showType" ng-click="productsCtrl.selectPotted()"/>
       <h3 class="fader ng-cloak" ng-show="productsCtrl.showSize">Do you need a small, medium, or large plant?</h3>
+     </a>
+    <a href="#">
     <img class="icon fader ng-cloak" ng-src="/static_assets/small.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectSmall()"/>
+    </a>
+    <a href="#">
     <img class="icon fader ng-cloak" ng-src="/static_assets/medium.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectMedium()"/>
+    </a>
+    <a href="#">
     <img class="icon fader ng-cloak" ng-src="/static_assets/large.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectLarge()"/>
+    </a>
 
 
 
-	<ul class="product-list small-block-grid-2">
+	<ul ng-if="productsCtrl.finalStep()" class="product-list small-block-grid-2">
 
 		<li ng-repeat="product in productsCtrl.filtered">
 

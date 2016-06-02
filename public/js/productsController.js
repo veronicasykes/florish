@@ -14,6 +14,7 @@ function ProductsController (productsFactory, $modal, $window){
 		.success(function(res){
 			vm.products = res
 		})
+	vm.step = 0
 	vm.addProduct = function(avatar_url, name, size, lightNeed, type, price, description){
 		var data = {avatar_url:avatar_url, name:name, size:size, lightNeed: lightNeed, type:type, price:price, description:description}
 		console.log(data)
@@ -40,6 +41,7 @@ function ProductsController (productsFactory, $modal, $window){
 					}
 
 			vm.filtered = vm.products.filter(function(item) {
+				console.log('item[prop]', item[prop])
 					return item[prop] === value;
 			});
 
@@ -58,6 +60,8 @@ function ProductsController (productsFactory, $modal, $window){
 		//
 		vm.selectSmall = function() {
 			console.log('selected small')
+			vm.step++
+			console.log("step:",vm.step)
 			vm.filterProducts('size', 'S')
 			vm.showSize = false
 			vm.showType = true
@@ -65,12 +69,16 @@ function ProductsController (productsFactory, $modal, $window){
 			console.log('after selected small')
 		}
 		vm.selectMedium = function() {
+			vm.step++
+			console.log("step:",vm.step)
 			vm.filterProducts('size', 'M')
 			vm.showSize = false
 			vm.showType = true
 			vm.showWords = false
 		}
 		vm.selectLarge = function() {
+			vm.step++
+			console.log("step:",vm.step)
 			vm.filterProducts('size', 'L')
 			vm.showSize = false
 			vm.showType = true
@@ -78,18 +86,24 @@ function ProductsController (productsFactory, $modal, $window){
 		}
 
 		vm.selectPotted = function() {
+			vm.step++
+			console.log("step:",vm.step)
 			vm.filterProducts('type', 'potted')
 			vm.showType = false
 			vm.showLight = true
 		}
 
 		vm.selectHanging = function() {
+			vm.step++
+			console.log("step:",vm.step)
 			vm.filterProducts('type', 'hanging')
 			vm.showType = false
 			vm.showLight = true
 		}
 
 		vm.selectLowLight = function() {
+			vm.step++
+			console.log("step:",vm.step)
 			vm.filterProducts('lightNeed', 'low')
 			vm.showLight = false
 			vm.showResults = true
@@ -97,13 +111,18 @@ function ProductsController (productsFactory, $modal, $window){
 		}
 
 		vm.selectBrightLight = function() {
+			vm.step++
+			console.log("step:",vm.step)
 			vm.filterProducts('lightNeed', 'bright')
 			vm.showLight = false
 			vm.showResults = true
 
 		}
 
-
+		vm.finalStep = function() {
+			if (vm.step === 3){return true}
+			return false
+		}
 		// function selectLarge() {
 		// 	vm.customerPreference.large = true
 		// 	vm.swapBtns()
