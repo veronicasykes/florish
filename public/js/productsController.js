@@ -93,6 +93,7 @@ function ProductsController (productsFactory, $modal, $window){
 				vm.showSize = false
 				vm.showType = true
 				vm.showWords = false
+				vm.showLight = false
 				vm.showBack = true
 			}else if (vm.step == 2) {
 				vm.showType = false
