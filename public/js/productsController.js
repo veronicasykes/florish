@@ -108,6 +108,17 @@ function ProductsController (productsFactory, $modal, $window){
 			console.log('hit back')
 			vm.nextStep(true)
 		}
+		vm.reset = function() {
+			console.log('reset')
+			vm.step = 0
+			vm.showSize = true
+			vm.showType = false
+			vm.showLight = false
+			vm.showWords = true
+			vm.showBack = false
+			vm.filterArray = []
+			vm.filtered = []
+		}
 
 		// vm.hideAllBtns = hideAllBtns
 		//
