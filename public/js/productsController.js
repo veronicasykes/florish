@@ -76,7 +76,8 @@ function ProductsController (productsFactory, $modal, $window){
 
 			if (back) {
 				vm.step--
-				vm.filterArray.splice((vm.step - 1), 1)
+				console.log('vm.filterArray[vm.step]',vm.filterArray[vm.step])
+				vm.filterArray.splice((vm.step), 1)
 				console.log('vm.filterArray',vm.filterArray)
 			}else{
 				vm.step++
