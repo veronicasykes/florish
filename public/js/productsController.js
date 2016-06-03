@@ -55,12 +55,13 @@ function ProductsController (productsFactory, $modal, $window){
 		console.log('vm.filterArray',vm.filterArray)
 		for (var i = 0; i < vm.products.length; i++) {
 			//console.log('vm.products'+ i + '.size',vm.products[i].size)
-			if (vm.products[i].size == vm.filterArray[0] && vm.products[i].type == vm.filterArray[1] && vm.products[i].lightNeed == vm.filterArray[2]) {
-				vm.filtered[i] = vm.products[i]
+			if (vm.products[i].size == array[0] && vm.products[i].type == array[1] && vm.products[i].lightNeed == array[2]) {
+				//console.log('vm.products[i]',vm.products[i])
+				vm.filtered.push(vm.products[i])
 			}
 		}
 		console.log('vm.filtered',vm.filtered)
-		vm.finalStep()
+		//vm.finalStep()
 	}
 
 		vm.showSize = true
@@ -75,7 +76,7 @@ function ProductsController (productsFactory, $modal, $window){
 
 			if (back) {
 				vm.step--
-				vm.filterArray.splice((step - 1), 1)
+				vm.filterArray.splice((vm.step - 1), 1)
 				console.log('vm.filterArray',vm.filterArray)
 			}else{
 				vm.step++
@@ -148,11 +149,11 @@ function ProductsController (productsFactory, $modal, $window){
 			vm.filterArray.push('bright')
 			vm.nextStep()
 		}
-		vm.done = false
+		//vm.done = false
 		vm.finalStep = function() {
-			// if (vm.step === 3){return true}
-			// return false
-			vm.done = true
+			if (vm.step === 3){return true}
+			return false
+			//vm.done = true
 		}
 		// function selectLarge() {
 		// 	vm.customerPreference.large = true
