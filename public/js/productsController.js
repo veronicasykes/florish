@@ -71,15 +71,22 @@ function ProductsController (productsFactory, $modal, $window){
 		vm.showBack = false
 
 		vm.nextStep = function(back) {
-			console.log('vm.filtered',vm.filtered)
-			console.log('vm.filterArray',vm.filterArray)
+			//console.log('vm.filtered',vm.filtered)
 
 			if (back) {
 				vm.step--
-				vm.filterArray.splice((vm.step - 1), 1)
+				if (vm.step == 3) {
+					vm.filterArray.splice((vm.step), 1)
+					vm.filterArray.splice((vm.step -1), 1)
+					vm.filtered = []
+				}else{
+					vm.filterArray.splice((vm.step), 1)
+					vm.filtered = []
+				}
 				console.log('vm.filterArray',vm.filterArray)
 			}else{
 				vm.step++
+				console.log('vm.filterArray',vm.filterArray)
 			}
 			console.log("step:",vm.step)
 

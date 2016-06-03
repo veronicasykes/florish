@@ -1,58 +1,73 @@
 
+<div ng-if="!productsCtrl.finalStep()" class="row" id="">
+  <!-- <div class="block">
+  </div> -->
+  <div class="choices text-center">
 
-
-  <div class="choices" id="choices">
-      <div class="block">
-      </div>
-      <h2 class= ng-cloak" ng-show="productsCtrl.showWords">Click on An Icon to Start Shopping!</h2>
-      <h2 class= ng-cloak" ng-show="productsCtrl.showResults">Your Results Are:</h2>
-    <h3 class= ng-cloak" ng-show="productsCtrl.showLight">Lots of light, or just a little?</h3>
+  <!-- LIGHT LEVELS -->
+	  <h2 class="ng-cloak" ng-show="productsCtrl.showWords">Click on An Icon to Start Shopping!</h2>
+	  <h2 class="ng-cloak" ng-show="productsCtrl.showResults">Your Results Are:</h2>
+	  <h3 class= ng-cloak" ng-show="productsCtrl.showLight">Lots of light, or just a little?</h3>
     <a href="#">
-    <img href="#" class="icon ng-cloak" id="low" ng-src="/static_assets/low.png" ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectLowLight()"/>
+    	<img href="#" class="icon ng-cloak" id="low" ng-src="/static_assets/low.png" ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectLowLight()"/>
     </a>
     <a href="#">
-    <img class="icon ng-cloak" ng-src="/static_assets/bright.png" ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectBrightLight()"/>
-      <h3 class= ng-cloak" ng-show="productsCtrl.showType">Do you want a potted plant or a hanging one?</h3>
-	   </a>
-	   <a href="#">
-    <img class="icon ng-cloak" ng-src="/static_assets/hanging.png" ng-show="productsCtrl.showType" ng-click="productsCtrl.selectHanging()"/>
-    <a href="#">
-    <img class="icon ng-cloak" ng-src="/static_assets/potted.png"ng-show="productsCtrl.showType" ng-click="productsCtrl.selectPotted()"/>
-      <h3 class= ng-cloak" ng-show="productsCtrl.showSize">Do you need a small, medium, or large plant?</h3>
-     </a>
-    <a href="#">
-    <img class="icon ng-cloak" ng-src="/static_assets/small.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectSmall()"/>
-    </a>
-    <a href="#">
-    <img class="icon ng-cloak" ng-src="/static_assets/medium.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectMedium()"/>
-    </a>
-    <a href="#">
-    <img class="icon ng-cloak" ng-src="/static_assets/large.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectLarge()"/>
+    	<img class="icon ng-cloak" ng-src="/static_assets/bright.png" ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectBrightLight()"/>
     </a>
 
+    <!-- POTTED OR NOT -->
+    <h3 class= ng-cloak" ng-show="productsCtrl.showType">Do you want a potted plant or a hanging one?</h3>
+	  <a href="#">
+    	<img class="icon ng-cloak" ng-src="/static_assets/hanging.png" ng-show="productsCtrl.showType" ng-click="productsCtrl.selectHanging()"/>
+    <a href="#">
+    	<img class="icon ng-cloak" ng-src="/static_assets/potted.png"ng-show="productsCtrl.showType" ng-click="productsCtrl.selectPotted()"/>
+    </a>
 
+    <!-- SMALL MEDIUM LARGE -->
+    <h3 class= ng-cloak" ng-show="productsCtrl.showSize">Do you need a small, medium, or large plant?</h3>
+    <a href="#">
+    	<img class="icon ng-cloak" ng-src="/static_assets/small.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectSmall()"/>
+    </a>
+    <a href="#">
+    	<img class="icon ng-cloak" ng-src="/static_assets/medium.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectMedium()"/>
+    </a>
+    <a href="#">
+    	<img class="icon ng-cloak" ng-src="/static_assets/large.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectLarge()"/>
+    </a>
 
-	<ul ng-if="productsCtrl.finalStep()" class="product-list small-block-grid-2">
-
-		<li ng-repeat="product in productsCtrl.filtered">
-
-			<figure class="shopWrapper">
-        <img class= "img-responsive" id="plantPic" ng-src="{{product.avatar_url}}"/>
-
-				<figcaption>
-					<h3>	{{ product.name}} - {{product.price | currency}}</h3>
-					<button ng-click="productsCtrl.addToCart(product)">Add to cart</button>
-				</figcaption>
-			</figure>
-		</li>
-	</ul>
-
+		<!-- BUTTONS -->
 		<div class="row">
 			<button class="text-center" ng-show="productsCtrl.showBack" ng-click="productsCtrl.back()">Back</button>
 			
 			<button class="text-center" ng-show="productsCtrl.showBack" ng-click="productsCtrl.reset()">Reset</button>
 		</div>
-	
+	</div>
+</div>
+
+<!-- RESULTS -->
+<div ng-if="productsCtrl.finalStep()" class="row">
+	<div class="choices">
+		<!-- RESULTS -->
+		<ul class=" product-list small-block-grid-2">
+		<!-- class="product-list small-block-grid-2" -->
+			<li ng-repeat="product in productsCtrl.filtered">
+				<figure class="shopWrapper">
+	        <img class= "img-responsive" id="plantPic" ng-src="{{product.avatar_url}}"/>
+					<figcaption>
+						<h3>	{{ product.name}} - {{product.price | currency}}</h3>
+						<button ng-click="productsCtrl.addToCart(product)">Add to cart</button>
+					</figcaption>
+				</figure>
+			</li>
+		</ul>
+
+		<!-- BUTTONS -->
+		<div class="row">
+			<button class="text-center" ng-show="productsCtrl.showBack" ng-click="productsCtrl.back()">Back</button>
+			
+			<button class="text-center" ng-show="productsCtrl.showBack" ng-click="productsCtrl.reset()">Reset</button>
+		</div>
+	</div>
 </div>
 
 <div ng-if="productsCtrl.cart.length" class="shopping-cart">
@@ -69,8 +84,4 @@
 	<button ng-click="productsCtrl.checkout();">Checkout</button>
 </div>
 
-
-    </div>
-
-
-    	<footer>Icons by Jennifer Wu</footer>
+<footer>Icons by Jennifer Wu</footer>
