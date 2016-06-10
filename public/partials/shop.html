@@ -15,15 +15,16 @@
     	<img class="icon ng-cloak" ng-src="/static_assets/bright.png" ng-show="productsCtrl.showLight" ng-click="productsCtrl.selectBrightLight()"/>
     </a>
 
-    <!-- POTTED OR NOT -->
-    <h3 class= ng-cloak" ng-show="productsCtrl.showType">Do you want a potted plant or a hanging one?</h3>
+    <!-- ********* WATER AMOUNT ********** -->
+    <h3 class= ng-cloak" ng-show="productsCtrl.showWater">Do you want a to water frequently or less frequently?</h3>
 	  <a href="#">
-    	<img class="icon ng-cloak" ng-src="/static_assets/hanging.png" ng-show="productsCtrl.showType" ng-click="productsCtrl.selectHanging()"/>
+    	<img class="icon ng-cloak" ng-src="/static_assets/hanging.png" ng-show="productsCtrl.showWater" ng-click="productsCtrl.selectLotsWater()"/>
+    </a>
     <a href="#">
-    	<img class="icon ng-cloak" ng-src="/static_assets/potted.png"ng-show="productsCtrl.showType" ng-click="productsCtrl.selectPotted()"/>
+    	<img class="icon ng-cloak" ng-src="/static_assets/potted.png"ng-show="productsCtrl.showWater" ng-click="productsCtrl.selectLittleWater()"/>
     </a>
 
-    <!-- SMALL MEDIUM LARGE -->
+    <!-- ********* SMALL MEDIUM LARGE ********* -->
     <h3 class= ng-cloak" ng-show="productsCtrl.showSize">Do you need a small, medium, or large plant?</h3>
     <a href="#">
     	<img class="icon ng-cloak" ng-src="/static_assets/small.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectSmall()"/>
@@ -35,7 +36,7 @@
     	<img class="icon ng-cloak" ng-src="/static_assets/large.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectLarge()"/>
     </a>
     <a href="#">
-    	<img class="icon ng-cloak" ng-src="/static_assets/potted.png"ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectPotted()"/>
+    	<img class="icon ng-cloak" ng-src="/static_assets/hanging.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectHanging()"/>
     </a>
 
 		<!-- BUTTONS -->
