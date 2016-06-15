@@ -199,6 +199,10 @@ function ProductsController (productsFactory, $modal, $window){
 			return false
 			//vm.done = true
 		}
+		vm.whichStep = function(x) {
+			if (x == vm.step) {return true}
+				return false
+		}
 		// function selectLarge() {
 		// 	vm.customerPreference.large = true
 		// 	vm.swapBtns()
