@@ -20,24 +20,32 @@
 	  <a href="#">
     	<img class="icon ng-cloak" ng-src="/static_assets/hanging.png" ng-show="productsCtrl.showWater" ng-click="productsCtrl.selectLotsWater()"/>
     </a>
+    <h4>High Maintenance</h4>
     <a href="#">
     	<img class="icon ng-cloak" ng-src="/static_assets/potted.png"ng-show="productsCtrl.showWater" ng-click="productsCtrl.selectLittleWater()"/>
     </a>
+    <h4>Low Maintenance</h4>
 
     <!-- ********* SMALL MEDIUM LARGE ********* -->
     <h3 class= ng-cloak" ng-show="productsCtrl.showSize">Do you need a small, medium, or large plant?</h3>
     <a href="#">
     	<img class="icon ng-cloak" ng-src="/static_assets/small.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectSmall()"/>
+    	<h4>Small</h4>
     </a>
+    
     <a href="#">
     	<img class="icon ng-cloak" ng-src="/static_assets/medium.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectMedium()"/>
+    	<h4>Medium</h4>
     </a>
+    
     <a href="#">
     	<img class="icon ng-cloak" ng-src="/static_assets/large.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectLarge()"/>
     </a>
+    <h4>Large</h4>
     <a href="#">
     	<img class="icon ng-cloak" ng-src="/static_assets/hanging.png" ng-show="productsCtrl.showSize" ng-click="productsCtrl.selectHanging()"/>
     </a>
+    <h4>Hanging</h4>
 
 		<!-- BUTTONS -->
 		<div class="row">
@@ -87,5 +95,3 @@
 
 	<button ng-click="productsCtrl.checkout();">Checkout</button>
 </div>
-
-<footer>Icons by Jennifer Wu</footer>

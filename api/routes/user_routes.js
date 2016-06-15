@@ -13,6 +13,9 @@ var User = require('../models/User')
 apiRouter.route('/users')
 	.post(usersController.create)
 
+apiRouter.route('/testmessage')
+	.get(usersController.testmessage)
+
 //login
 apiRouter.route('/authenticate')
 	.post(usersController.authenticate)
