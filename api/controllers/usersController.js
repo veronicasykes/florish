@@ -2,8 +2,15 @@
 
 var User = require('../models/User'),
 	jwt = require('jsonwebtoken'),
+	request = require('request')
 	mySpecialSecret = "cactus";
-
+var client = require('twilio')('AC325d73b5b7abd9dbb2ff4366757ecbb5', '31f5ccc5a6ebd60b5cc4c824f56a9986');
+// old SID AC9eff848b6d1c0d5bfd1732286da3c5d9
+// old AUTH 4908124a91c878a6e2d6341bec25de3f
+// bought number 2053907080
+// new SID ACd7f826970a3f5cbc0efe4890f5d44a8e
+// new AUTH 361871c106d3668f8dcfe705ccc11e20
+// 16024287749
 
 function index(req, res){
 	// get all the users -- index
@@ -121,6 +128,40 @@ function checkUser(req, res, next){
 	console.log("checking if user is logged in")
 }
 
+function testmessage(req,res) {
+	console.log('Made it to testmessage')
+	// request("http://localhost:8080/error", function(error, response, html) {
+ //    if(!error){
+ //      //var rqstResponse = response
+ //      console.log("response.body", response.body)
+ //    }
+ //    console.log('get ready for a text')
+ //  })
+
+  //Send an SMS text message
+  client.sendMessage({
+
+      to:'+14154652990', // Any number Twilio can deliver to
+      from: '+18554729851', // A number you bought from Twilio and can use for outbound communication
+      body: 'word to your mother. This Came from Twilio fool.' // body of the SMS message
+
+  }, function(err, responseData) { //this function is executed when a response is received from Twilio
+
+      if (!err) { // "err" is an error received during the request, if any
+
+          // "responseData" is a JavaScript object containing data received from Twilio.
+          // A sample response from sending an SMS message is here (click "JSON" to see how the data appears in JavaScript):
+          // http://www.twilio.com/docs/api/rest/sending-sms#example-1
+
+          console.log("twilio error res",responseData.from); // outputs "+14506667788"
+          console.log("twilio error res.body",responseData.body); // outputs "word to your mother."
+
+      }
+      res.json({message:"success from twilio!"})
+  });
+
+}
+
 module.exports = {
 	index: index,
 	create: create,
@@ -128,5 +169,6 @@ module.exports = {
 	update: update,
 	destroy: destroy,
 	authenticate: authenticateUser,
-	checkUser: checkUser
+	checkUser: checkUser,
+	testmessage: testmessage
 }

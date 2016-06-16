@@ -53,11 +53,24 @@ function ProductsController (productsFactory, $modal, $window){
 	};
 	vm.findByFilters = function(array) {
 		console.log('vm.filterArray',vm.filterArray)
-		for (var i = 0; i < vm.products.length; i++) {
-			//console.log('vm.products'+ i + '.size',vm.products[i].size)
-			if (vm.products[i].size == array[0] && vm.products[i].type == array[1] && vm.products[i].lightNeed == array[2]) {
-				//console.log('vm.products[i]',vm.products[i])
-				vm.filtered.push(vm.products[i])
+
+		if (array.indexOf('hanging') == -1) {
+			console.log("Potted Results")
+			for (var i = 0; i < vm.products.length; i++) {
+				//console.log('vm.products'+ i + '.size',vm.products[i].size)
+				if (vm.products[i].size == array[0] && vm.products[i].lightNeed == array[2]) {
+					//console.log('vm.products[i]',vm.products[i])
+					vm.filtered.push(vm.products[i])
+				}
+			}
+		}else{
+			console.log("hanging results")
+			for (var i = 0; i < vm.products.length; i++) {
+				//console.log('vm.products'+ i + '.size',vm.products[i].size)
+				if (vm.products[i].type == array[0] && vm.products[i].lightNeed == array[2]) {
+					//console.log('vm.products[i]',vm.products[i])
+					vm.filtered.push(vm.products[i])
+				}
 			}
 		}
 		console.log('vm.filtered',vm.filtered)
@@ -65,7 +78,7 @@ function ProductsController (productsFactory, $modal, $window){
 	}
 
 		vm.showSize = true
-		vm.showType = false
+		vm.showWater = false
 		vm.showLight = false
 		vm.showWords = true
 		vm.showBack = false
@@ -92,18 +105,18 @@ function ProductsController (productsFactory, $modal, $window){
 
 			if(vm.step == 0){
 				vm.showSize = true
-				vm.showType = false
+				vm.showWater = false
 				vm.showLight = false
 				vm.showWords = true
 				vm.showBack = false
 			}else if (vm.step == 1) {
 				vm.showSize = false
-				vm.showType = true
+				vm.showWater = true
 				vm.showWords = false
 				vm.showLight = false
 				vm.showBack = true
 			}else if (vm.step == 2) {
-				vm.showType = false
+				vm.showWater = false
 				vm.showLight = true
 				vm.showBack = true
 			}else if (vm.step == 3) {
@@ -120,7 +133,7 @@ function ProductsController (productsFactory, $modal, $window){
 			console.log('reset')
 			vm.step = 0
 			vm.showSize = true
-			vm.showType = false
+			vm.showWater = false
 			vm.showLight = false
 			vm.showWords = true
 			vm.showBack = false
@@ -130,6 +143,7 @@ function ProductsController (productsFactory, $modal, $window){
 
 		// vm.hideAllBtns = hideAllBtns
 		//
+		//********************** SIZE *********************
 		vm.selectSmall = function() {
 			console.log('selected small')
 			//vm.filterProducts('size', 'S')
@@ -146,7 +160,7 @@ function ProductsController (productsFactory, $modal, $window){
 			vm.filterArray.push('L')
 			vm.nextStep()
 		}
-
+		//****************** POTTED OR HANGING ******************
 		vm.selectPotted = function() {
 			//vm.filterProducts('type', 'potted')
 			vm.filterArray.push('potted')
@@ -157,7 +171,18 @@ function ProductsController (productsFactory, $modal, $window){
 			vm.filterArray.push('hanging')
 			vm.nextStep()
 		}
-
+		//****************** AMOUNT OF WATER ******************
+		vm.selectLotsWater = function() {
+			//vm.filterProducts('type', 'hanging')
+			vm.filterArray.push('lotsWater')
+			vm.nextStep()
+		}
+		vm.selectLittleWater = function() {
+			//vm.filterProducts('type', 'hanging')
+			vm.filterArray.push('littleWater')
+			vm.nextStep()
+		}
+		//****************** LIGHT ******************
 		vm.selectLowLight = function() {
 			//vm.filterProducts('lightNeed', 'low')
 			vm.filterArray.push('low')
@@ -173,6 +198,10 @@ function ProductsController (productsFactory, $modal, $window){
 			if (vm.step === 3){return true}
 			return false
 			//vm.done = true
+		}
+		vm.whichStep = function(x) {
+			if (x == vm.step) {return true}
+				return false
 		}
 		// function selectLarge() {
 		// 	vm.customerPreference.large = true
