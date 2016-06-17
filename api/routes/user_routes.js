@@ -20,6 +20,10 @@ apiRouter.route('/testmessage')
 apiRouter.route('/authenticate')
 	.post(usersController.authenticate)
 
+// pots step
+// apiRouter.route('/pots/:_id')
+// 	.get(productsController.pots)
+
 //products CRUD
 apiRouter.route('/products')
 	.get(productsController.getAllProducts)

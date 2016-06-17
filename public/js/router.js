@@ -54,5 +54,9 @@ function MainRouter($stateProvider, $urlRouterProvider) {
 			templateUrl: 'partials/product-form.html',
 			controller: 'ProductsController as productsCtrl'
 		})
-
+		.state('pot', {
+			url: '/pots/:_id',
+			templateUrl: 'partials/pot.html',
+			controller: 'ProductsController as productsCtrl'
+		})
 }
