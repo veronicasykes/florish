@@ -7,16 +7,36 @@
 	</div>
 	<div class="col-md-6 text-center">
 		<!-- RESULTS -->
-		<a class="" href="#">
-    	<img class="icon" ng-src="/static_assets/large.png"/>
+		<!-- <a class="" href="#">
+    	<img class="icon img-responsive" ng-src="/static_assets/large.png"/>
     </a>
     <a class="" href="#">
-    	<img class="icon" ng-src="/static_assets/large.png"/>
+    	<img class="icon img-responsive" ng-src="/static_assets/large.png"/>
     </a>
     <a class="" href="#">
-    	<img class="icon" ng-src="/static_assets/large.png"/>
+    	<img class="icon img-responsive" ng-src="/static_assets/large.png"/>
     </a>
-	</div>
+	</div> -->
+	<ul class=" product-list small-block-grid-2">
+			<li>
+				<figure class="shopWrapper">
+	        <img class= "img-responsive" id="plantPic" ng-src="/static_assets/large.png"/>
+					<figcaption>
+						<h3>	{{productsCtrl.productId}}</h3>
+						<button>Pot it!</button>
+					</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure class="shopWrapper">
+	        <img class= "img-responsive" id="plantPic" ng-src="/static_assets/large.png"/>
+					<figcaption>
+						<h3>	{{productsCtrl.productId}}</h3>
+						<button>Pot it!</button>
+					</figcaption>
+				</figure>
+			</li>
+		</ul>
 		<!-- <ul class=" product-list small-block-grid-2">
 			<li ng-repeat="product in productsCtrl.filtered">
 				<figure class="shopWrapper">
@@ -28,12 +48,11 @@
 				</figure>
 			</li>
 		</ul> -->
-
+	</div> <!-- End of the pots column and the top row -->
 
 	<!-- BUTTONS -->
 	<div class="row text-center">
 		<button class="">Back</button>
-		
 		<button class="">I have a pot</button>
 	</div>
 
