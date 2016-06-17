@@ -3,9 +3,9 @@ angular
 	.controller('ProductsController', ProductsController)
 
 
-ProductsController.$inject = ['productsFactory', '$modal', '$window']
+ProductsController.$inject = ['productsFactory', '$modal', '$window', '$state']
 
-function ProductsController (productsFactory, $modal, $window){
+function ProductsController (productsFactory, $modal, $window, $state){
 	var vm = this;
 	vm.api = productsFactory
 	vm.products = []
@@ -229,21 +229,24 @@ function ProductsController (productsFactory, $modal, $window){
 
 
 	vm.cart = [];
-
 	vm.addToCart = function (product) {
-		console.log(product)
-			var found = false;
-			vm.cart.forEach(function (item) {
-				if (item._id === product._id) {
-					item.quantity++;
-					found = true;
-				}
-			});
-			if (!found) {
-				vm.cart.push(angular.extend({quantity: 1}, product));
+		console.log('product:****',product)
+		$window.localStorage.currentProductId = product._id
+		$window.localStorage.currentProductUrl = product.avatar_url
+		var found = false;
+		vm.cart.forEach(function (item) {
+			if (item._id === product._id) {
+				item.quantity++;
+				found = true;
 			}
-		};
+		});
+		if (!found) {
+			vm.cart.push(angular.extend({quantity: 1}, product));
+		}
+	};
 
+	vm.product = $window.localStorage.currentProductId
+	vm.productUrl = $window.localStorage.currentProductUrl
 
 	vm.getCartPrice = function () {
 		var total = 0;

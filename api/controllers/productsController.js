@@ -46,12 +46,17 @@ function deleteProduct(req,res){
 	})
 }
 
+function pots(req,res) {
+	console.log('pots backend')
+}
+
 
 module.exports = {
 	getAllProducts : getAllProducts,
 	createProduct : createProduct,
 	getOneProduct : getOneProduct,
 	updateProduct : updateProduct,
-	deleteProduct : deleteProduct
+	deleteProduct : deleteProduct,
+	pots: pots
 
 }
