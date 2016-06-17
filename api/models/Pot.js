@@ -1,19 +1,18 @@
+//Pot.js
+
 var
 	mongoose = require('mongoose'),
 	Schema = mongoose.Schema
 
-var productSchema = new Schema({
+var potSchema = new Schema({
 	type: String,
 	name: String,
 	size: String,
-	lightNeed: String,
-	waterNeed: String,
 	description: String,
-	image: String,
 	price: Number,
 	avatar_url: String
 })
 
-var Product = mongoose.model('Product', productSchema)
+var Pot = mongoose.model('Pot', potSchema)
 
-module.exports = Product
+module.exports = Pot
